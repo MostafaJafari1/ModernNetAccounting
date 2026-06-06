@@ -25,3 +25,33 @@
 *.v2
 /.vs/ModernNetAccounting.slnx/v17/.suo
 /.vs/ModernNetAccounting.slnx/v17/DocumentLayout.backup.json
+/.vs/ModernNetAccounting.slnx/v18
+/.vs/ModernNetAccounting.slnx/v18/DocumentLayout.backup.json
+/.vs/ModernNetAccounting.slnx/v18/DocumentLayout.json
+/src/buildingblocks/src/buildingblocks.messaging.kafka/obj/Debug/net10.0/BuildingBlocks.Messaging.Kafka.GeneratedMSBuildEditorConfig.editorconfig
+/src/buildingblocks/src/buildingblocks.messaging.kafka/obj/BuildingBlocks.Messaging.Kafka.csproj.nuget.dgspec.json
+/src/buildingblocks/src/buildingblocks.messaging.kafka/obj/project.assets.json
+/src/buildingblocks/src/common/bin/Debug/net10.0/BuildingBlocks.Common.deps.json
+/src/buildingblocks/src/common/bin/Debug/net10.0/BuildingBlocks.Common.dll
+/src/buildingblocks/src/common/bin/Debug/net10.0/BuildingBlocks.Common.pdb
+/src/buildingblocks/src/infrastructure/obj/Debug/net10.0/BuildingBlocks.Infrastructure.pdb
+
+# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.nupkg
+*.snupkg
+artifacts/
+
+# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.nupkg
+*.snupkg
+artifacts/

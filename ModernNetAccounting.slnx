@@ -1,5 +1,14 @@
 <Solution>
   <Folder Name="/src/" />
+  <Folder Name="/src/buildingblocks/" />
+  <Folder Name="/src/buildingblocks/src/">
+    <Project Path="src/buildingblocks/src/api/BuildingBlocks.API.csproj" />
+    <Project Path="src/buildingblocks/src/application/BuildingBlocks.Application.csproj" />
+    <Project Path="src/buildingblocks/src/common/BuildingBlocks.Common.csproj" />
+    <Project Path="src/buildingblocks/src/domain/BuildingBlocks.Domain.csproj" />
+    <Project Path="src/buildingblocks/src/infrastructure/BuildingBlocks.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/buildingblocks/tests/" />
   <Folder Name="/src/services/" />
   <Folder Name="/src/services/accounting/" />
   <Folder Name="/src/services/accounting/1.core/">
@@ -9,7 +18,13 @@
     <Project Path="src/services/accounting/1.core/request-response/Accounting.Core.RequestResponse.csproj" />
     <Project Path="src/services/accounting/1.core/resources/Accounting.Core.Resources.csproj" />
   </Folder>
+  <Folder Name="/src/services/accounting/1.core/application/" />
+  <Folder Name="/src/services/accounting/1.core/contracts/" />
+  <Folder Name="/src/services/accounting/1.core/domain/" />
+  <Folder Name="/src/services/accounting/1.core/request-response/" />
+  <Folder Name="/src/services/accounting/1.core/resources/" />
   <Folder Name="/src/services/accounting/3.endpoints/">
     <Project Path="src/services/accounting/3.endpoints/api/Accounting.Endpoints.Api.csproj" />
   </Folder>
+  <Folder Name="/src/services/accounting/3.endpoints/api/" />
 </Solution>
