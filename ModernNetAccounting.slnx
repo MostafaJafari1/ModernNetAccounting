@@ -1,1 +1,15 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/services/" />
+  <Folder Name="/src/services/accounting/" />
+  <Folder Name="/src/services/accounting/1.core/">
+    <Project Path="src/services/accounting/1.core/application/Accounting.Core.Application.csproj" />
+    <Project Path="src/services/accounting/1.core/contracts/Accounting.Core.Contracts.csproj" />
+    <Project Path="src/services/accounting/1.core/domain/Accounting.Core.Domain.csproj" />
+    <Project Path="src/services/accounting/1.core/request-response/Accounting.Core.RequestResponse.csproj" />
+    <Project Path="src/services/accounting/1.core/resources/Accounting.Core.Resources.csproj" />
+  </Folder>
+  <Folder Name="/src/services/accounting/3.endpoints/">
+    <Project Path="src/services/accounting/3.endpoints/api/Accounting.Endpoints.Api.csproj" />
+  </Folder>
+</Solution>
