@@ -6,4 +6,7 @@
     <Project Path="src/domain/BuildingBlocks.Domain.csproj" />
     <Project Path="src/infrastructure/BuildingBlocks.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BuildingBlocks.Domain.Tests/BuildingBlocks.Domain.Tests.csproj" Id="a03407ee-3e56-4692-abb4-cf7b659451f5" />
+  </Folder>
 </Solution>

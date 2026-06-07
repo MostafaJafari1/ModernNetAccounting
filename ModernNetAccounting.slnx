@@ -18,11 +18,6 @@
     <Project Path="src/services/accounting/1.core/request-response/Accounting.Core.RequestResponse.csproj" />
     <Project Path="src/services/accounting/1.core/resources/Accounting.Core.Resources.csproj" />
   </Folder>
-  <Folder Name="/src/services/accounting/1.core/application/" />
-  <Folder Name="/src/services/accounting/1.core/contracts/" />
-  <Folder Name="/src/services/accounting/1.core/domain/" />
-  <Folder Name="/src/services/accounting/1.core/request-response/" />
-  <Folder Name="/src/services/accounting/1.core/resources/" />
   <Folder Name="/src/services/accounting/3.endpoints/">
     <Project Path="src/services/accounting/3.endpoints/api/Accounting.Endpoints.Api.csproj" />
   </Folder>
