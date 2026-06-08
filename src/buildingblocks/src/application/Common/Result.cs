@@ -1,30 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace BuildingBlocks.Application.Common;
 
-namespace BuildingBlocks.Application.Common;
-
-public class Result<T>
+public sealed class Result<T>
 {
-    public bool IsSuccess { get; }
-    public string Message { get; }
-    public List<string> Errors { get; }
-    public T Data { get; }
+    private readonly T? _value;
 
-    private Result(bool isSuccess, T data, string message, List<string> errors)
+    private Result(T? value, bool isSuccess, IReadOnlyList<Error> errors)
     {
+        if (isSuccess && errors.Any(e => e != Error.None))
+            throw new InvalidOperationException("A successful result cannot contain errors.");
+
+        if (!isSuccess && errors.Count == 0)
+            throw new InvalidOperationException("A failed result must contain at least one error.");
+
+        _value = value;
         IsSuccess = isSuccess;
-        Data = data;
-        Message = message;
-        Errors = errors ?? new();
+        Errors = errors;
     }
 
-    public static Result<T> Success(T data, string message = null) =>
-        new(true, data, message, null);
+    public bool IsSuccess { get; }
+    public bool IsFailure => !IsSuccess;
 
-    public static Result<T> Failure(string error) =>
-        new(false, default, null, new List<string> { error });
+    public T Value => IsSuccess
+        ? _value!
+        : throw new InvalidOperationException("A failed result does not have a value.");
 
-    public static Result<T> Failure(List<string> errors) =>
-        new(false, default, null, errors);
+    public Error Error => Errors.FirstOrDefault() ?? Error.None;
+    public IReadOnlyList<Error> Errors { get; }
+
+    //Factory Methods
+
+    public static Result<T> Success(T value)
+        => new(value, true, [Error.None]);
+
+    public static Result<T> Failure(Error error)
+        => new(default, false, [error]);
+
+    public static Result<T> Failure(IReadOnlyList<Error> errors)
+        => new(default, false, errors);
+
+    //Implicit Operators
+
+    public static implicit operator Result<T>(T value)
+        => Success(value);
+
+    public static implicit operator Result<T>(Error error)
+        => Failure(error);
+
+    public static implicit operator Result<T>(List<Error> errors)
+        => Failure(errors);
 }

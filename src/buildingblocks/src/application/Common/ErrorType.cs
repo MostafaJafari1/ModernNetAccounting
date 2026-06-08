@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BuildingBlocks.Application.Common;
+public enum ErrorType
+{
+    Failure = 0,  
+    Validation = 1, 
+    NotFound = 2,   
+    Unauthorized = 3, 
+    Conflict = 4
+}
