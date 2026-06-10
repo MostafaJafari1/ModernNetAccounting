@@ -5,6 +5,7 @@
     <Project Path="src/buildingblocks/src/api/BuildingBlocks.API.csproj" />
     <Project Path="src/buildingblocks/src/application/BuildingBlocks.Application.csproj" />
     <Project Path="src/buildingblocks/src/common/BuildingBlocks.Common.csproj" />
+    <Project Path="src/buildingblocks/src/contracts/BuildingBlocks.Contracts/BuildingBlocks.Contracts.csproj" Id="27a5b132-49ec-4534-907b-10702893e3d1" />
     <Project Path="src/buildingblocks/src/domain/BuildingBlocks.Domain.csproj" />
     <Project Path="src/buildingblocks/src/infrastructure/BuildingBlocks.Infrastructure.csproj" />
   </Folder>
@@ -21,5 +22,4 @@
   <Folder Name="/src/services/accounting/3.endpoints/">
     <Project Path="src/services/accounting/3.endpoints/api/Accounting.Endpoints.Api.csproj" />
   </Folder>
-  <Folder Name="/src/services/accounting/3.endpoints/api/" />
 </Solution>

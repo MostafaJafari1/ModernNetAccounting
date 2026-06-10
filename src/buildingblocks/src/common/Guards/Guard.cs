@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+namespace BuildingBlocks.Common.Guards;
 public sealed class GuardClause { }
 public static class Guard
 {

@@ -1,4 +1,5 @@
 ﻿using BuildingBlocks.Application.Common;
+using BuildingBlocks.Contracts.Application.CQRS.Commands;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -49,5 +50,7 @@ namespace BuildingBlocks.Application.CQRS.Command
         protected abstract Task<Result<TResult>> HandleAsync(
             TCommand command,
             CancellationToken cancellationToken);
+
+      
     }
 }

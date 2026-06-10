@@ -1,4 +1,4 @@
-﻿using BuildingBlocks.Application.CQRS.Query;
+﻿using BuildingBlocks.Contracts.Application.CQRS.Queries;
 using Microsoft.Extensions.Logging;
 
 namespace BuildingBlocks.Application.CQRS.Queries;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-namespace BuildingBlocks.Domain.Guards.Extensions;
+namespace BuildingBlocks.Common.Guards.Extensions;
 public static class StringGuardExtensions
 {
     public static string NullOrEmpty(

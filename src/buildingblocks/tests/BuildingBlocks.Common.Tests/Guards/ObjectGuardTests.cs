@@ -1,6 +1,7 @@
 ﻿using System;
-using BuildingBlocks.Domain.Guards.Extensions;
 using Xunit;
+using BuildingBlocks.Common.Guards.Extensions;
+using BuildingBlocks.Common.Guards;
 
 namespace BuildingBlocks.Domain.Tests.Guards;
 

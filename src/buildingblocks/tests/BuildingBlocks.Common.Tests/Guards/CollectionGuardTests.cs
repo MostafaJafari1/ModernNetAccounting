@@ -1,7 +1,8 @@
-﻿using BuildingBlocks.Domain.Guards.Extensions;
+﻿using BuildingBlocks.Common.Guards;
 using System;
 using System.Collections.Generic;
 using Xunit;
+using BuildingBlocks.Common.Guards.Extensions;
 
 namespace BuildingBlocks.Domain.Tests.Guards;
 
