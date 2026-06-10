@@ -3,10 +3,12 @@
     <Project Path="src/api/BuildingBlocks.API.csproj" />
     <Project Path="src/application/BuildingBlocks.Application.csproj" />
     <Project Path="src/common/BuildingBlocks.Common.csproj" />
+    <Project Path="src/contracts/BuildingBlocks.Contracts/BuildingBlocks.Contracts.csproj" />
     <Project Path="src/domain/BuildingBlocks.Domain.csproj" />
     <Project Path="src/infrastructure/BuildingBlocks.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/BuildingBlocks.Common.Tests/BuildingBlocks.Common.Tests.csproj" Id="9079b79b-fcaa-4172-b8aa-38f96f1ed990" />
     <Project Path="tests/BuildingBlocks.Domain.Tests/BuildingBlocks.Domain.Tests.csproj" Id="a03407ee-3e56-4692-abb4-cf7b659451f5" />
   </Folder>
 </Solution>

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace BuildingBlocks.Domain.Guards.Extensions;
+namespace BuildingBlocks.Common.Guards.Extensions;
 public static class CollectionGuardExtensions
 {
     public static IEnumerable<T> NotEmpty<T>(

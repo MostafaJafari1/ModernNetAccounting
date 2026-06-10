@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace BuildingBlocks.Domain.Guards.Extensions;
+namespace BuildingBlocks.Common.Guards.Extensions;
 public static class DateGuardExtensions
 {
     public static DateTime InFuture(

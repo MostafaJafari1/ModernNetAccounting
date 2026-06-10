@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Application.CQRS.Query;
+namespace BuildingBlocks.Contracts.Application.CQRS.Queries;
 
 public interface IQueryHandler<TQuery, TResult>
     where TQuery : IQuery<TResult>

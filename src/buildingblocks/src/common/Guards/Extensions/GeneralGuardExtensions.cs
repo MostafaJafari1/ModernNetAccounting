@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace BuildingBlocks.Domain.Guards.Extensions;
+namespace BuildingBlocks.Common.Guards.Extensions;
 public static class GeneralGuardExtensions
 {
     public static T Must<T>(
