@@ -16,7 +16,13 @@ public abstract class AggregateRoot : Entity, IAggregateRoot
 
     public void ClearDomainEvents() => _domainEvents.Clear();
 
-    // افزودن رویداد دامنه جدید
+    public IReadOnlyCollection<IDomainEvent> DequeueDomainEvents()
+    {
+        var events = GetDomainEvents();
+        ClearDomainEvents();
+        return events;
+    }
+
     protected void RaiseDomainEvent(IDomainEvent domainEvent) =>
         _domainEvents.Add(domainEvent);
 }

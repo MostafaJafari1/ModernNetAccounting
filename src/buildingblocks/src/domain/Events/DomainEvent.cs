@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BuildingBlocks.Domain.Abstractions;
 
-namespace BuildingBlocks.Domain.Events
+namespace BuildingBlocks.Domain.Events;
+
+public abstract record DomainEvent : IDomainEvent
 {
-    public class DomainEvent
-    {
-    }
+    public Guid Id { get; } = Guid.NewGuid();
+    public DateTime HappenedAt { get; } = DateTime.UtcNow;
 }
