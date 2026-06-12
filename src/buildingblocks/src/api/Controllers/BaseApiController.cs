@@ -11,7 +11,20 @@ namespace BuildingBlocks.API.Controllers;
 [Route("api/v{version:apiVersion}/[controller]")]
 public abstract class BaseApiController : ControllerBase
 {
-    protected IActionResult HandleResult<T>(Result<T> result)
+    protected IActionResult Get<T>(Result<T> result) => HandleResult(result);
+    
+    protected IActionResult Create<T>(Result<T> result) => HandleCreatedResult(result, string.Empty, null);
+    
+    protected IActionResult Create<T>(
+        Result<T> result,
+        string actionName = "",
+        object? routeValues = null) => HandleCreatedResult(result, actionName, routeValues);
+
+    protected IActionResult Update<T>(Result<T> result) => HandleResult(result);
+
+    protected IActionResult Delete<T>(Result<T> result) => HandleResult(result);
+
+    private IActionResult HandleResult<T>(Result<T> result)
     {
         if (result.IsSuccess)
             return Ok(result.Value);
@@ -25,14 +38,15 @@ public abstract class BaseApiController : ControllerBase
             _ => StatusCode(500, ToProblemDetails(result.Error))
         };
     }
-
-    protected IActionResult HandleCreatedResult<T>(
-        Result<T> result,
-        string actionName,
-        object routeValues)
+    private IActionResult HandleCreatedResult<T>(
+      Result<T> result,
+      string? actionName = null,
+      object? routeValues = null)
     {
         if (result.IsSuccess)
-            return CreatedAtAction(actionName, routeValues, result.Value);
+            return actionName is not null
+                ? CreatedAtAction(actionName, routeValues, result.Value)
+                : StatusCode(StatusCodes.Status201Created, result.Value);
 
         return result.Error.Type switch
         {
@@ -68,6 +82,6 @@ public abstract class BaseApiController : ControllerBase
         ErrorType.Unauthorized => StatusCodes.Status401Unauthorized,
         ErrorType.Conflict => StatusCodes.Status409Conflict,
         _ => StatusCodes.Status500InternalServerError
-    }; 
+    };
     #endregion
 }
