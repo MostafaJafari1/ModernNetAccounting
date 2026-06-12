@@ -13,6 +13,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\common\BuildingBlocks.Common.csproj" />
+	  <ProjectReference Include="..\..\src\contracts\BuildingBlocks.Contracts\BuildingBlocks.Contracts.csproj" />
 	</ItemGroup>
 
 </Project>
