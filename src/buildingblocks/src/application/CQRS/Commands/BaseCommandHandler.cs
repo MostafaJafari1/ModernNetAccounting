@@ -3,6 +3,7 @@ using BuildingBlocks.Contracts.Application.CQRS.Commands;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace BuildingBlocks.Application.CQRS.Command
@@ -19,29 +20,40 @@ namespace BuildingBlocks.Application.CQRS.Command
             Logger = logger;
         }
 
-        public async Task<Result<TResult>> Handle(
-            TCommand command,
-            CancellationToken cancellationToken)
+        public async Task<Result<TResult>> Handle(TCommand command, CancellationToken cancellationToken)
         {
+            var stopwatch = Stopwatch.StartNew();
+
             try
             {
-                Logger.LogInformation(
-                    "Started executing Command: {CommandType}",
-                    typeof(TCommand).Name);
+                Logger.LogInformation("Started executing Command: {CommandType}", typeof(TCommand).Name);
 
                 var result = await HandleAsync(command, cancellationToken);
 
-                Logger.LogInformation(
-                    "Command executed successfully: {CommandType}",
-                    typeof(TCommand).Name);
+                stopwatch.Stop();
+
+                if (result.IsSuccess)
+                    Logger.LogInformation(
+                        "Command executed successfully: {CommandType} in {ElapsedMs}ms",
+                        typeof(TCommand).Name,
+                        stopwatch.ElapsedMilliseconds);
+                else
+                    Logger.LogWarning(
+                        "Command failed: {CommandType} - {Error} in {ElapsedMs}ms",
+                        typeof(TCommand).Name,
+                        result.Error.Message,
+                        stopwatch.ElapsedMilliseconds);
 
                 return result;
             }
             catch (Exception ex)
             {
+                stopwatch.Stop();
+
                 Logger.LogError(ex,
-                    "Unexpected error occurred while executing Command: {CommandType}",
-                    typeof(TCommand).Name);
+                    "Unexpected error occurred while executing Command: {CommandType} in {ElapsedMs}ms",
+                    typeof(TCommand).Name,
+                    stopwatch.ElapsedMilliseconds);
 
                 throw;
             }
