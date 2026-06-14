@@ -1,6 +1,10 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/buildingblocks/" />
+  <Folder Name="/src/buildingblocks/Integrations/">
+    <Project Path="src/buildingblocks/Integrations/BuildingBlocks.Integration.Marten/BuildingBlocks.Integration.Marten.csproj" Id="36ebe480-912a-4da8-b440-4ea7fdf9a85f" />
+    <Project Path="src/buildingblocks/Integrations/BuildingBlocks.Integrations.Wolverine/BuildingBlocks.Integrations.Wolverine.csproj" />
+  </Folder>
   <Folder Name="/src/buildingblocks/src/">
     <Project Path="src/buildingblocks/src/api/BuildingBlocks.API.csproj" />
     <Project Path="src/buildingblocks/src/application/BuildingBlocks.Application.csproj" />
@@ -19,6 +23,11 @@
     <Project Path="src/services/accounting/1.core/request-response/Accounting.Core.RequestResponse.csproj" />
     <Project Path="src/services/accounting/1.core/resources/Accounting.Core.Resources.csproj" />
   </Folder>
+  <Folder Name="/src/services/accounting/2.infrastructure/" />
+  <Folder Name="/src/services/accounting/2.infrastructure/data/">
+    <Project Path="src/services/accounting/2.infrastructure/data/Accounting.Infrastructure.Data.EventSourcing.Write/Accounting.Infrastructure.Data.EventSourcing.Write.csproj" Id="f498d413-9b7c-488c-a402-b6c13c4742a6" />
+  </Folder>
+  <Folder Name="/src/services/accounting/2.infrastructure/externalapi/" />
   <Folder Name="/src/services/accounting/3.endpoints/">
     <Project Path="src/services/accounting/3.endpoints/api/Accounting.Endpoints.Api.csproj" />
   </Folder>

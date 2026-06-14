@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\buildingblocks\src\application\BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\contracts\Accounting.Core.Contracts.csproj" />
+    <ProjectReference Include="..\request-response\Accounting.Core.RequestResponse.csproj" />
+  </ItemGroup>
+
 </Project>

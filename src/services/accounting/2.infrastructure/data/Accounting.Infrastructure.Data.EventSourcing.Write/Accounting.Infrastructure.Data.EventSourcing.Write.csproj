@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\buildingblocks\src\common\BuildingBlocks.Common.csproj" />
-    <ProjectReference Include="..\..\..\..\buildingblocks\src\domain\BuildingBlocks.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\..\buildingblocks\src\contracts\BuildingBlocks.Contracts\BuildingBlocks.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\1.core\contracts\Accounting.Core.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
