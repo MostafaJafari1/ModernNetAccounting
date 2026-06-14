@@ -13,10 +13,12 @@ public abstract class Entity : IEntity
         if (id == Guid.Empty)
             throw new ArgumentException("Entity Id cannot be empty.", nameof(id));
 
-        Id = id;
+        SetId(id);
     }
 
     public Guid Id { get; private set; }
+
+    protected void SetId(Guid id) => Id = id;
 
     protected void CheckRule(IBusinessRule rule) => Check.Rule(rule);
 

@@ -3,6 +3,5 @@
 public interface IAggregateRoot : IEntity
 {
     IReadOnlyCollection<IDomainEvent> GetDomainEvents();
-    IReadOnlyCollection<IDomainEvent> DequeueDomainEvents();
     void ClearDomainEvents();
 }

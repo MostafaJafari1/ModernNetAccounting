@@ -13,7 +13,7 @@ public abstract class BaseApiController : ControllerBase
 {
     protected IActionResult Get<T>(Result<T> result) => HandleResult(result);
     
-    protected IActionResult Create<T>(Result<T> result) => HandleCreatedResult(result, string.Empty, null);
+    protected IActionResult Create<T>(Result<T> result) => HandleCreatedResult(result, null, null);
     
     protected IActionResult Create<T>(
         Result<T> result,
