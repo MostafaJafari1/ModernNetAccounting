@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integration.Marten\BuildingBlocks.Integration.Marten.csproj" />
+    <ProjectReference Include="..\domain\Accounting.Core.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
