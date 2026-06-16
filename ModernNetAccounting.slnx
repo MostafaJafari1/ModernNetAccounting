@@ -31,4 +31,8 @@
   <Folder Name="/src/services/accounting/3.endpoints/">
     <Project Path="src/services/accounting/3.endpoints/api/Accounting.Endpoints.Api.csproj" />
   </Folder>
+  <Folder Name="/src/services/tests/" />
+  <Folder Name="/src/services/tests/accounting/">
+    <Project Path="src/services/tests/accounting/Accounting.UnitTests/Accounting.UnitTests.csproj" Id="cf69b71e-2c4d-4f1f-b707-e804fcee434f" />
+  </Folder>
 </Solution>
