@@ -94,7 +94,7 @@ namespace Accounting.Core.Domain.Journals
 
         public void Apply(JournalEntryCreated @event)
         {
-            SetId(@event.Id);
+            SetId(@event.JournalEntryId);
             Date = @event.Date;
             Description = @event.Description;
             Status = JournalStatus.Draft;
