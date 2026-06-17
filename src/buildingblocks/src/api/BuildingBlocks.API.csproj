@@ -13,6 +13,9 @@
   <ItemGroup>
     <ProjectReference Include="..\application\BuildingBlocks.Application.csproj" />
   </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="12.1.1" />
+		<PackageReference Include="Asp.Versioning.Mvc" Version="10.0.0" />
+	</ItemGroup>
 </Project>
   
