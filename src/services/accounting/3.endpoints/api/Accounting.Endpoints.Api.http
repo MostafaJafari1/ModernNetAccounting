@@ -4,3 +4,47 @@ GET {{Accounting.Endpoints.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+//Correct Request for Journal Entry
+
+POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal
+Content-Type: application/json
+
+{
+  "date": "2024-01-01",
+  "description": "Test Journal",
+  "lines": [
+    {
+      "accountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "debit": 1000,
+      "credit": 0
+    },
+    {
+      "accountId": "4fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "debit": 0,
+      "credit": 1000
+    }
+  ]
+}
+
+###
+
+//Invalid Request for Journal Entry
+POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal
+Content-Type: application/json
+
+{
+  "date": "2024-01-01",
+  "description": "",
+  "lines": [
+    {
+      "accountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "debit": 1000,
+      "credit": 0
+    },
+    {
+      "accountId": "4fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "debit": 0,
+      "credit": 1000
+    }
+  ]
+}

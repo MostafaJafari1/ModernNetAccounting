@@ -1,19 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
-
 	<ItemGroup>
-		<PackageReference Include="Asp.Versioning.Mvc" Version="10.0.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8" />
+		<PackageReference Include="WolverineFx.FluentValidation" Version="6.11.0" />
 		<PackageReference Include="WolverineFx.RuntimeCompilation" Version="6.7.0" />
 		<PackageReference Include="WolverineFx.Marten" Version="6.8.0" />
 		<PackageReference Include="Npgsql" Version="9.0.4" />
 	</ItemGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integration.Marten\BuildingBlocks.Integration.Marten.csproj" />
 		<ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integrations.Wolverine\BuildingBlocks.Integrations.Wolverine.csproj" />
@@ -21,7 +19,5 @@
 		<ProjectReference Include="..\..\1.core\application\Accounting.Core.Application.csproj" />
 		<ProjectReference Include="..\..\1.core\request-response\Accounting.Core.RequestResponse.csproj" />
 		<ProjectReference Include="..\..\2.infrastructure\data\Accounting.Infrastructure.Data.EventSourcing.Write\Accounting.Infrastructure.Data.EventSourcing.Write.csproj" />
-
-</ItemGroup>
-
+	</ItemGroup>
 </Project>
