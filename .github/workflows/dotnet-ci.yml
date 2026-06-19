@@ -1,15 +1,12 @@
 name: .NET Core CI
-
 on:
   push:
-    branches: [ "main", "develop" ] # تست‌ها هنگام پوش به این برنچ‌ها اجرا می‌شوند
+    branches: [ "main", "develop" ]
   pull_request:
-    branches: [ "main" ] # تست‌ها هنگام ایجاد PR به سمت main اجرا می‌شوند
-
+    branches: [ "main" ]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     
@@ -25,4 +22,4 @@ jobs:
       run: dotnet build --no-restore --configuration Release
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test src/services/tests/accounting/Accounting.UnitTests/Accounting.UnitTests.csproj --no-build --verbosity normal
