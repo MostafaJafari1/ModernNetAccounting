@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Integrations/">
+    <Project Path="Integrations/BuildingBlocks.Integrations.Marten/BuildingBlocks.Integrations.Marten.csproj" />
+    <Project Path="Integrations/BuildingBlocks.Integrations.Wolverine/BuildingBlocks.Integrations.Wolverine.csproj" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/api/BuildingBlocks.API.csproj" />
     <Project Path="src/application/BuildingBlocks.Application.csproj" />

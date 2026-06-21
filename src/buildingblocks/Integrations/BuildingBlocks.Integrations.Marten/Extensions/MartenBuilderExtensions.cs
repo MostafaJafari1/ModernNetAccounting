@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using static Marten.MartenServiceCollectionExtensions;
 
-namespace BuildingBlocks.Integration.Marten.Extensions;
+namespace BuildingBlocks.Integrations.Marten.Extensions;
 
 public static class MartenBuilderExtensions
 {

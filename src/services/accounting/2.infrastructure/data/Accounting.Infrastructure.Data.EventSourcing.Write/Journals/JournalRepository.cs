@@ -1,6 +1,6 @@
 ﻿using Accounting.Core.Contracts.Journals;
 using Accounting.Core.Domain.Journals;
-using BuildingBlocks.Integration.Marten.Repository;
+using BuildingBlocks.Integrations.Marten.Repository;
 using Marten;
 using System;
 using System.Collections.Generic;

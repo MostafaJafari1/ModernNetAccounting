@@ -7,7 +7,7 @@ using Accounting.Infrastructure.Data.EventSourcing.Write.Journals;
 using Asp.Versioning;
 using BuildingBlocks.API.Extensions;
 using BuildingBlocks.API.Infrastructure;
-using BuildingBlocks.Integration.Marten.Extensions;
+using BuildingBlocks.Integrations.Marten.Extensions;
 using FluentValidation;
 using JasperFx;
 using JasperFx.Events;

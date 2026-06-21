@@ -1,8 +1,5 @@
 ﻿using Accounting.Core.Domain.Journals;
-using BuildingBlocks.Integration.Marten.Repository;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using BuildingBlocks.Integrations.Marten.Repository;
 
 namespace Accounting.Core.Contracts.Journals;
 
