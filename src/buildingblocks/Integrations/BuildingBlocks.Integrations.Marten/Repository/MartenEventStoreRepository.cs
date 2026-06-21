@@ -1,11 +1,11 @@
-﻿using BuildingBlocks.Integration.Marten.Events;
+﻿using BuildingBlocks.Integrations.Marten.Events;
 using JasperFx.Events;
 using Marten;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Integration.Marten.Repository;
+namespace BuildingBlocks.Integrations.Marten.Repository;
 
 public class MartenEventStoreRepository<TAggregate> :
     IMartenEventStoreRepository<TAggregate>

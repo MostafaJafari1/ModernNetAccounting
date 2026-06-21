@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Integration.Marten.Repository;
+namespace BuildingBlocks.Integrations.Marten.Repository;
 
 // مسئولیت: فقط عملیات پایه‌ای read/write روی event stream
 public interface IMartenEventStoreRepository<TAggregate> where TAggregate : class

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Integrations\BuildingBlocks.Integrations.Marten\BuildingBlocks.Integrations.Marten.csproj" />
     <ProjectReference Include="..\..\common\BuildingBlocks.Common.csproj" />
     <ProjectReference Include="..\..\domain\BuildingBlocks.Domain.csproj" />
   </ItemGroup>

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Integration.Marten.Extensions;
+namespace BuildingBlocks.Integrations.Marten.Extensions;
 
 public class MartenDefaults
 {
