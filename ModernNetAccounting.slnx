@@ -36,6 +36,7 @@
   </Folder>
   <Folder Name="/src/services/tests/" />
   <Folder Name="/src/services/tests/accounting/">
+    <Project Path="src/services/tests/Accounting.ArchTests/Accounting.ArchTests.csproj" Id="75105664-2435-4967-9537-9860e4bc2a7f" />
     <Project Path="src/services/tests/accounting/Accounting.UnitTests/Accounting.UnitTests.csproj" Id="cf69b71e-2c4d-4f1f-b707-e804fcee434f" />
   </Folder>
 </Solution>

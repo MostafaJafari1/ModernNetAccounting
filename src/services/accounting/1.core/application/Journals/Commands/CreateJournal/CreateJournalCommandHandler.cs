@@ -2,7 +2,8 @@
 using Accounting.Core.Domain.Journals;
 using Accounting.Core.RequestResponse.Journals.Commands;
 using BuildingBlocks.Application.Common;
-using BuildingBlocks.Application.CQRS.Command;
+using BuildingBlocks.Application.CQRS.Commands;
+using BuildingBlocks.Common;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

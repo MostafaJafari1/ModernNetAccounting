@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Application.Common;
+namespace BuildingBlocks.Common.Errors;
 
 public sealed record Error(string Code, string Message, ErrorType Type)
 {

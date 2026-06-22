@@ -1,4 +1,4 @@
-﻿using BuildingBlocks.Application.Common;
+﻿using BuildingBlocks.Common;
 using BuildingBlocks.Contracts.Application.CQRS.Commands;
 using BuildingBlocks.Contracts.Application.CQRS.Queries;
 using Microsoft.AspNetCore.Mvc;

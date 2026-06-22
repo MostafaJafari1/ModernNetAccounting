@@ -1,4 +1,4 @@
-﻿using BuildingBlocks.Application.Common;
+﻿using BuildingBlocks.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;

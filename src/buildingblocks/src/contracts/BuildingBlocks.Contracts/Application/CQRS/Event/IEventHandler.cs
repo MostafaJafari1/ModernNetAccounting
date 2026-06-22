@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Application.CQRS.Events;
+namespace BuildingBlocks.Contracts.Application.CQRS.Event;
 public interface IEventHandler<TEvent>
     where TEvent : IDomainEvent
 {

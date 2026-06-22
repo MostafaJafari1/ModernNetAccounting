@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.API.Extensions;
+namespace BuildingBlocks.API.Infrastructure.Extensions;
 public static class ApiVersioningExtensions
 {
     public static IServiceCollection AddApiVersioningConfiguration(this IServiceCollection services)

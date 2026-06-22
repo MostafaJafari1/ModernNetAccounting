@@ -1,4 +1,5 @@
-﻿using BuildingBlocks.Domain.Abstractions;
+﻿using BuildingBlocks.Contracts.Application.CQRS.Event;
+using BuildingBlocks.Domain.Abstractions;
 using Microsoft.Extensions.Logging;
 
 namespace BuildingBlocks.Application.CQRS.Events;
