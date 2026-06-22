@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Application.Common;
+namespace BuildingBlocks.Common.Errors;
 public enum ErrorType
 {
     Failure = 0,  

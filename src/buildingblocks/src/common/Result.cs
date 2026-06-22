@@ -1,4 +1,6 @@
-﻿namespace BuildingBlocks.Application.Common;
+﻿using BuildingBlocks.Common.Errors;
+
+namespace BuildingBlocks.Common;
 
 public sealed class Result<T>
 {

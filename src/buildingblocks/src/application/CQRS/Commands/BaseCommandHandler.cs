@@ -1,4 +1,4 @@
-﻿using BuildingBlocks.Application.Common;
+﻿using BuildingBlocks.Common;
 using BuildingBlocks.Contracts.Application.CQRS.Commands;
 using Microsoft.Extensions.Logging;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace BuildingBlocks.Application.CQRS.Command
+namespace BuildingBlocks.Application.CQRS.Commands
 {
 
     public abstract class BaseCommandHandler<TCommand, TResult>
