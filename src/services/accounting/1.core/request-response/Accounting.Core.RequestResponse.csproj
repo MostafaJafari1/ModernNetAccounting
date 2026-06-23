@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\buildingblocks\src\application\BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\resources\Accounting.Core.Resources.csproj" />
   </ItemGroup>
 
 </Project>

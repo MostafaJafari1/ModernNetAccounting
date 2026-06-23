@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Accounting.Core.Resources.Messages;
 
 namespace Accounting.Core.RequestResponse.Journals.Commands;
 
@@ -13,21 +14,24 @@ public class CreateJournalLineCommandValidator : AbstractValidator<CreateJournal
     {
         // AccountId validation
         RuleFor(x => x.AccountId)
-            .NotEmpty().WithMessage("Account is required.");
+            .NotEmpty()
+            .WithMessage(ValidationMessages.JournalLine_AccountRequired);
 
         // Debit validation
         RuleFor(x => x.Debit)
-            .GreaterThanOrEqualTo(0).WithMessage("Debit amount cannot be negative.");
+            .GreaterThanOrEqualTo(0)
+            .WithMessage(ValidationMessages.JournalLine_DebitCannotBeNegative);
 
         // Credit validation
         RuleFor(x => x.Credit)
-            .GreaterThanOrEqualTo(0).WithMessage("Credit amount cannot be negative.");
+            .GreaterThanOrEqualTo(0)
+            .WithMessage(ValidationMessages.JournalLine_CreditCannotBeNegative);
 
         // Either Debit or Credit must have a value, not both
         RuleFor(x => x)
             .Must(x => x.Debit == 0 || x.Credit == 0)
-            .WithMessage("A journal line cannot have both debit and credit values.")
+            .WithMessage(ValidationMessages.JournalLine_BothDebitAndCredit)
             .Must(x => x.Debit > 0 || x.Credit > 0)
-            .WithMessage("A journal line must have either a debit or credit value.");
+            .WithMessage(ValidationMessages.JournalLine_MustHaveDebitOrCredit);
     }
 }
