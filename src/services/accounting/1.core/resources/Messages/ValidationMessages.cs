@@ -1,0 +1,16 @@
+﻿namespace Accounting.Core.Resources.Messages;
+
+public static class ValidationMessages
+{
+    // Journal
+    public static readonly string Journal_DateRequired = "Journal date is required.";
+    public static readonly string Journal_DescriptionRequired = "Journal description is required.";
+    public static readonly string Journal_DescriptionMaxLength = "Description cannot exceed 500 characters.";
+
+    // Journal Line
+    public static readonly string JournalLine_AccountRequired = "Account is required.";
+    public static readonly string JournalLine_DebitCannotBeNegative = "Debit amount cannot be negative.";
+    public static readonly string JournalLine_CreditCannotBeNegative = "Credit amount cannot be negative.";
+    public static readonly string JournalLine_BothDebitAndCredit = "A journal line cannot have both debit and credit values.";
+    public static readonly string JournalLine_MustHaveDebitOrCredit = "A journal line must have either a debit or credit value.";
+}
