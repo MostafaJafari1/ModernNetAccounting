@@ -1,5 +1,6 @@
 ﻿using Accounting.Core.Domain.Journals.Events;
 using Accounting.Core.Domain.Journals.Rules;
+using Accounting.Core.Domain.Journals.ValueObjects;
 using BuildingBlocks.Domain.Abstractions;
 using BuildingBlocks.Domain.Primitives;
 using BuildingBlocks.Domain.Rules;
@@ -12,8 +13,8 @@ namespace Accounting.Core.Domain.Journals
     public class JournalEntry : EventSourcedAggregateRoot
     {
         public DateOnly Date { get; private set; }
-        public string Description { get; private set; } = default!;
-        public JournalStatus Status { get; private set; }
+        public JournalDescription Description { get; private set; } = default!;
+        public JournalStatus Status { get; private set; } = default!;
         public IReadOnlyList<JournalLine> Lines => _lines;
 
         private readonly List<JournalLine> _lines = new();
@@ -25,8 +26,10 @@ namespace Accounting.Core.Domain.Journals
              DateOnly date,
              string description)
         {
+            var journalDesc = JournalDescription.Create(description);
+
             var entry = new JournalEntry();
-            entry.Raise(new JournalEntryCreated(id, date, description));
+            entry.Raise(new JournalEntryCreated(id, date, journalDesc.Value));
             return entry;
         }
 
@@ -96,7 +99,7 @@ namespace Accounting.Core.Domain.Journals
         {
             SetId(@event.JournalEntryId);
             Date = @event.Date;
-            Description = @event.Description;
+            Description = (JournalDescription)@event.Description;
             Status = JournalStatus.Draft;
         }
 
