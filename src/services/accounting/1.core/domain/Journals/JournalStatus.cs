@@ -1,12 +1,16 @@
-﻿using System;
+﻿using BuildingBlocks.Domain.Primitives;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Core.Domain.Journals;
-public enum JournalStatus
+
+public sealed class JournalStatus : Enumeration<JournalStatus>
 {
-    Draft,
-    Posted
+    public static readonly JournalStatus Draft = new(1, nameof(Draft));
+    public static readonly JournalStatus Posted = new(2, nameof(Posted));
+
+    private JournalStatus(int value, string name) : base(value, name)
+    {
+    }
 }
