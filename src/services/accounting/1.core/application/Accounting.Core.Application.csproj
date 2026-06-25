@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integrations.Wolverine\BuildingBlocks.Integrations.Wolverine.csproj" />
     <ProjectReference Include="..\..\..\..\buildingblocks\src\application\BuildingBlocks.Application.csproj" />
     <ProjectReference Include="..\contracts\Accounting.Core.Contracts.csproj" />
     <ProjectReference Include="..\request-response\Accounting.Core.RequestResponse.csproj" />
