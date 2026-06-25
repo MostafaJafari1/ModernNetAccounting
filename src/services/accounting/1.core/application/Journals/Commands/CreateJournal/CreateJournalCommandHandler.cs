@@ -4,16 +4,18 @@ using Accounting.Core.RequestResponse.Journals.Commands;
 using BuildingBlocks.Application.Common;
 using BuildingBlocks.Application.CQRS.Commands;
 using BuildingBlocks.Common;
+using BuildingBlocks.Integrations.Wolverine;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Wolverine;
 
 namespace Accounting.Core.Application.Journals.Commands.CreateJournal
 {
     public class CreateJournalCommandHandler(
         ILogger<CreateJournalCommandHandler> logger,
-        IJournalRepository _journalRepository) :
+        IJournalRepository _journalRepository, IMessageBus _bus) :
         BaseCommandHandler<CreateJournalCommand, Unit>(logger)
     {
         protected override async Task<Result<Unit>> HandleAsync(
@@ -43,6 +45,8 @@ namespace Accounting.Core.Application.Journals.Commands.CreateJournal
                 journal.Id,
                 events: events,
                 cancellationToken: cancellationToken);
+
+            await _bus.PublishDomainEventsAsync(events);
 
             journal.ClearDomainEvents();
 
