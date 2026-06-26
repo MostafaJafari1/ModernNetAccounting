@@ -1,4 +1,5 @@
 ﻿using Accounting.Core.Domain.Journals;
+using Accounting.Core.Domain.Journals.ValueObjects;
 using BuildingBlocks.Domain.Exceptions;
 using FluentAssertions;
 using System;
@@ -19,12 +20,13 @@ namespace Accounting.UnitTests.Journals.Domain
         public void Create_WithValidParameters_ShouldInitializeJournalInDraftStatus()
         {
             // Act
-            var journal = JournalEntry.Create(_journalId, _testDate, "Opening Entry");
+            var desc = "Opening Entry";
+            var journal = JournalEntry.Create(_journalId, _testDate, desc);
 
             // Assert
             journal.Id.Should().Be(_journalId);
             journal.Date.Should().Be(_testDate);
-            journal.Description.Should().Be("Opening Entry");
+            journal.Description.Value.Should().Be(desc);
             journal.Status.Should().Be(JournalStatus.Draft);
             journal.Lines.Should().BeEmpty();
         }
