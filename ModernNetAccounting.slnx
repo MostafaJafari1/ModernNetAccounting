@@ -17,6 +17,9 @@
     <Project Path="src/buildingblocks/tests/BuildingBlocks.Common.Tests/BuildingBlocks.Common.Tests.csproj" />
     <Project Path="src/buildingblocks/tests/BuildingBlocks.Domain.Tests/BuildingBlocks.Domain.Tests.csproj" />
   </Folder>
+  <Folder Name="/src/orchestration/">
+    <Project Path="src/orchestration/ModernNetAccounting.AppHost/ModernNetAccounting.AppHost.csproj" Id="ff9621db-b4d7-4778-89cb-add7a46e6c27" />
+  </Folder>
   <Folder Name="/src/services/" />
   <Folder Name="/src/services/accounting/" />
   <Folder Name="/src/services/accounting/1.core/">
