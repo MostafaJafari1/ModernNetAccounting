@@ -23,6 +23,10 @@ public class CreateJournalCommandValidator : AbstractValidator<CreateJournalComm
             .MaximumLength(AppConstants.Journal.DescriptionMaxLength)
             .WithMessage(ValidationMessages.Journal_DescriptionMaxLength);
 
+        RuleFor(x => x.JournalEntryType)
+            .IsInEnum()
+            .WithMessage(ValidationMessages.Journal_InvalidEntryType);
+
         RuleForEach(x => x.Lines)
             .SetValidator(new CreateJournalLineCommandValidator());
     }

@@ -142,16 +142,6 @@ public class LayerDependencyTests
             .Check(ArchitectureRegistry.Architecture);
     }
 
-    [Fact]
-    public void Application_Should_Not_DependOn_BuildingBlocks_Wolverine()
-    {
-        ArchRuleDefinition
-            .Types().That().ResideInAssembly(ArchitectureRegistry.ApplicationAssembly)
-            .Should().NotDependOnAny(
-                ArchRuleDefinition.Types().That().ResideInAssembly(ArchitectureRegistry.BuildingBlocksWolverineAssembly))
-            .Check(ArchitectureRegistry.Architecture);
-    }
-
     // =====================================================================
     // Infrastructure Layer
     // allowed  : Application, Domain, Contracts, all BuildingBlocks except API

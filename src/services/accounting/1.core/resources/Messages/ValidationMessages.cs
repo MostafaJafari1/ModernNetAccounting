@@ -13,4 +13,5 @@ public static class ValidationMessages
     public static readonly string JournalLine_CreditCannotBeNegative = "Credit amount cannot be negative.";
     public static readonly string JournalLine_BothDebitAndCredit = "A journal line cannot have both debit and credit values.";
     public static readonly string JournalLine_MustHaveDebitOrCredit = "A journal line must have either a debit or credit value.";
+    public static readonly string Journal_InvalidEntryType = "The selected journal entry type is invalid or does not exist.";
 }
