@@ -9,6 +9,6 @@ namespace Accounting.Core.Domain.Journals.Events
     public sealed record JournalEntryCreated(
         Guid JournalEntryId,
         DateOnly Date,
-        string Description
-    ) : DomainEvent;
+        string Description,
+        int JournalEntryTypeId) : DomainEvent;
 }
