@@ -28,7 +28,7 @@ namespace Accounting.Core.Application.Journals.Commands.CreateJournal
                 id: journalId,
                 date: command.Date,
                 description: command.Description,
-                journalEntryTypeId: (int)command.JournalEntryType
+                journalTypeId: (int)command.JournalEntryType
             );
 
             foreach (var line in command.Lines)

@@ -29,7 +29,7 @@ namespace Accounting.UnitTests.Journals.Domain
             journal.Date.Should().Be(_testDate);
             journal.Description.Value.Should().Be(desc);
             journal.Status.Should().Be(JournalStatus.Draft);
-            journal.Type.Should().Be(JournalEntryType.General);
+            journal.Type.Should().Be(JournalType.General);
             journal.Lines.Should().BeEmpty();
         }
 
