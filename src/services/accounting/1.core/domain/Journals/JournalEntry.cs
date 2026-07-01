@@ -15,7 +15,7 @@ namespace Accounting.Core.Domain.Journals
         public DateOnly Date { get; private set; }
         public JournalDescription Description { get; private set; } = default!;
         public JournalStatus Status { get; private set; } = default!;
-        public JournalEntryType Type { get; private set; } = default!;
+        public JournalType Type { get; private set; } = default!;
         public IReadOnlyList<JournalLine> Lines => _lines;
 
         private readonly List<JournalLine> _lines = new();
@@ -26,13 +26,13 @@ namespace Accounting.Core.Domain.Journals
              Guid id,
              DateOnly date,
              string description,
-             int journalEntryTypeId)
+             int journalTypeId)
         {
             var journalDesc = JournalDescription.Create(description);
-            JournalEntryType journalEntryType = JournalEntryType.FromValue(journalEntryTypeId)!;
+            JournalType journalType = JournalType.FromValue(journalTypeId)!;
 
             var entry = new JournalEntry();
-            entry.Raise(new JournalEntryCreated(id, date, journalDesc.Value, journalEntryType.Value));
+            entry.Raise(new JournalEntryCreated(id, date, journalDesc.Value, journalType.Value));
             return entry;
         }
 
@@ -103,7 +103,7 @@ namespace Accounting.Core.Domain.Journals
             SetId(@event.JournalEntryId);
             Date = @event.Date;
             Description = (JournalDescription)@event.Description;
-            Type = JournalEntryType.FromValue(@event.JournalEntryTypeId)!;
+            Type = JournalType.FromValue(@event.JournalTypeId)!;
             Status = JournalStatus.Draft;
         }
 

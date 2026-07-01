@@ -10,5 +10,5 @@ namespace Accounting.Core.Domain.Journals.Events
         Guid JournalEntryId,
         DateOnly Date,
         string Description,
-        int JournalEntryTypeId) : DomainEvent;
+        int JournalTypeId) : DomainEvent;
 }
