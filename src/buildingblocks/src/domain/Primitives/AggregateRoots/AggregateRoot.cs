@@ -1,6 +1,6 @@
 ﻿using BuildingBlocks.Domain.Abstractions;
 
-namespace BuildingBlocks.Domain.Primitives;
+namespace BuildingBlocks.Domain.Primitives.AggregateRoots;
 
 public abstract class AggregateRoot : Entity, IAggregateRoot
 {
