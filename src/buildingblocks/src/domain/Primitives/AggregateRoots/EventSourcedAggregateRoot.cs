@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Domain.Primitives;
+namespace BuildingBlocks.Domain.Primitives.AggregateRoots;
 
 public abstract class EventSourcedAggregateRoot : AggregateRoot, IEventSourcedAggregateRoot
 {

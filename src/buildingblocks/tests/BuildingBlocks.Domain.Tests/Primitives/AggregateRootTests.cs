@@ -1,5 +1,5 @@
 ﻿using BuildingBlocks.Domain.Abstractions;
-using BuildingBlocks.Domain.Primitives;
+using BuildingBlocks.Domain.Primitives.AggregateRoots;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;

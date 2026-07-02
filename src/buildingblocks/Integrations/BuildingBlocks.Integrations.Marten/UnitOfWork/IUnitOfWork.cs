@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildingBlocks.Infrastructure.UnitOfWork
+namespace BuildingBlocks.Integrations.Marten.UnitOfWork
 {
     public interface IUnitOfWork
     {
