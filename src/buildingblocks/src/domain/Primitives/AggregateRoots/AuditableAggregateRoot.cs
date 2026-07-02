@@ -7,6 +7,9 @@ namespace BuildingBlocks.Domain.Primitives.AggregateRoots
 {
     public abstract class AuditableAggregateRoot : AggregateRoot, IAuditableEntity
     {
+        protected AuditableAggregateRoot() { }
+        protected AuditableAggregateRoot(Guid id) : base(id) { }
+
         public DateTime CreatedAt { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? LastModifiedAt { get; set; }

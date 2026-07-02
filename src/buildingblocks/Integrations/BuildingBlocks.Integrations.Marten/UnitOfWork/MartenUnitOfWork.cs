@@ -1,5 +1,4 @@
-﻿using BuildingBlocks.Infrastructure.UnitOfWork;
-using Marten;
+﻿using Marten;
 using System;
 using System.Collections.Generic;
 using System.Text;
