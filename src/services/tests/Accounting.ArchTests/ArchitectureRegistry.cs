@@ -21,7 +21,6 @@ public class ArchitectureRegistry
             // Building blocks assemblies
             Assembly.GetAssembly(typeof(BuildingBlocks.Domain.AssemblyReference))!,
             Assembly.GetAssembly(typeof(BuildingBlocks.Application.AssemblyReference))!,
-            Assembly.GetAssembly(typeof(BuildingBlocks.Infrastructure.AssemblyReference))!,
             Assembly.GetAssembly(typeof(BuildingBlocks.API.AssemblyReference))!,
             Assembly.GetAssembly(typeof(BuildingBlocks.Common.AssemblyReference))!,
             Assembly.GetAssembly(typeof(BuildingBlocks.Contracts.AssemblyReference))!,
@@ -65,8 +64,6 @@ public class ArchitectureRegistry
     public static Assembly BuildingBlocksApplicationAssembly =>
         Assembly.GetAssembly(typeof(BuildingBlocks.Application.AssemblyReference))!;
 
-    public static Assembly BuildingBlocksInfrastructureAssembly =>
-        Assembly.GetAssembly(typeof(BuildingBlocks.Infrastructure.AssemblyReference))!;
 
     public static Assembly BuildingBlocksApiAssembly =>
         Assembly.GetAssembly(typeof(BuildingBlocks.API.AssemblyReference))!;

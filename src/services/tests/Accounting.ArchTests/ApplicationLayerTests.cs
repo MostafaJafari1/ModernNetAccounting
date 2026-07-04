@@ -59,16 +59,6 @@ public class LayerDependencyTests
     }
 
     [Fact]
-    public void Domain_Should_Not_DependOn_BuildingBlocks_Infrastructure()
-    {
-        ArchRuleDefinition
-            .Types().That().ResideInAssembly(ArchitectureRegistry.DomainAssembly)
-            .Should().NotDependOnAny(
-                ArchRuleDefinition.Types().That().ResideInAssembly(ArchitectureRegistry.BuildingBlocksInfrastructureAssembly))
-            .Check(ArchitectureRegistry.Architecture);
-    }
-
-    [Fact]
     public void Domain_Should_Not_DependOn_BuildingBlocks_API()
     {
         ArchRuleDefinition
@@ -119,16 +109,6 @@ public class LayerDependencyTests
             .Types().That().ResideInAssembly(ArchitectureRegistry.ApplicationAssembly)
             .Should().NotDependOnAny(
                 ArchRuleDefinition.Types().That().ResideInAssembly(ArchitectureRegistry.EndpointsAssembly))
-            .Check(ArchitectureRegistry.Architecture);
-    }
-
-    [Fact]
-    public void Application_Should_Not_DependOn_BuildingBlocks_Infrastructure()
-    {
-        ArchRuleDefinition
-            .Types().That().ResideInAssembly(ArchitectureRegistry.ApplicationAssembly)
-            .Should().NotDependOnAny(
-                ArchRuleDefinition.Types().That().ResideInAssembly(ArchitectureRegistry.BuildingBlocksInfrastructureAssembly))
             .Check(ArchitectureRegistry.Architecture);
     }
 
@@ -211,16 +191,6 @@ public class LayerDependencyTests
             .Types().That().ResideInAssembly(ArchitectureRegistry.ContractsAssembly)
             .Should().NotDependOnAny(
                 ArchRuleDefinition.Types().That().ResideInAssembly(ArchitectureRegistry.EndpointsAssembly))
-            .Check(ArchitectureRegistry.Architecture);
-    }
-
-    [Fact]
-    public void Contracts_Should_Not_DependOn_BuildingBlocks_Infrastructure()
-    {
-        ArchRuleDefinition
-            .Types().That().ResideInAssembly(ArchitectureRegistry.ContractsAssembly)
-            .Should().NotDependOnAny(
-                ArchRuleDefinition.Types().That().ResideInAssembly(ArchitectureRegistry.BuildingBlocksInfrastructureAssembly))
             .Check(ArchitectureRegistry.Architecture);
     }
 

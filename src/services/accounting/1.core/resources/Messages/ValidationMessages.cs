@@ -2,6 +2,7 @@
 
 public static class ValidationMessages
 {
+    #region Journal
     // Journal
     public static readonly string Journal_DateRequired = "Journal date is required.";
     public static readonly string Journal_DescriptionRequired = "Journal description is required.";
@@ -14,4 +15,17 @@ public static class ValidationMessages
     public static readonly string JournalLine_BothDebitAndCredit = "A journal line cannot have both debit and credit values.";
     public static readonly string JournalLine_MustHaveDebitOrCredit = "A journal line must have either a debit or credit value.";
     public static readonly string Journal_InvalidEntryType = "The selected journal entry type is invalid or does not exist.";
+
+    #endregion
+
+    #region Account
+    //Accounts
+    public const string Account_CodeRequired = "Account code cannot be empty.";
+    public const string Account_CodeMaxLength = "Account code length exceeds the maximum limit.";
+    public const string Account_NameRequired = "Account name cannot be empty.";
+    public const string Account_NameMaxLength = "Account name length exceeds the maximum limit.";
+    public const string Account_InvalidLevel = "The selected account level is invalid.";
+    public const string Account_InvalidNature = "The selected account nature is invalid.";
+    #endregion
+
 }

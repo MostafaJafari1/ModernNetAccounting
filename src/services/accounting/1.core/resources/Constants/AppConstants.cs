@@ -10,4 +10,10 @@ public static class AppConstants
     {
         public const int DescriptionMaxLength = 500;
     }
+
+    public static class Account
+    {
+        public const int CodeMaxLength = 20; 
+        public const int NameMaxLength = 250;
+    }
 }

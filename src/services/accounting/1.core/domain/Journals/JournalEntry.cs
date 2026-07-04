@@ -1,8 +1,9 @@
-﻿using Accounting.Core.Domain.Journals.Events;
+﻿using Accounting.Core.Domain.Journals.Enums;
+using Accounting.Core.Domain.Journals.Events;
 using Accounting.Core.Domain.Journals.Rules;
 using Accounting.Core.Domain.Journals.ValueObjects;
 using BuildingBlocks.Domain.Abstractions;
-using BuildingBlocks.Domain.Primitives;
+using BuildingBlocks.Domain.Primitives.AggregateRoots;
 using BuildingBlocks.Domain.Rules;
 using System;
 using System.Collections.Generic;

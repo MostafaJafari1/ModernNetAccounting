@@ -16,6 +16,16 @@ public abstract class AggregateRoot : Entity, IAggregateRoot
 
     public void ClearDomainEvents() => _domainEvents.Clear();
 
+    //Use For Soft Delete
+    public bool IsDeleted { get; private set; } = false;
+
+    //Use For Soft Delete
+    public virtual void Delete()
+    {
+        if (IsDeleted) return; 
+        this.IsDeleted = true;
+    }
+
     protected void RaiseDomainEvent(IDomainEvent domainEvent) =>
         _domainEvents.Add(domainEvent);
 }
