@@ -1,7 +1,7 @@
 ﻿using BuildingBlocks.Domain.Primitives;
 using System;
 
-namespace Accounting.Core.Domain.Journals;
+namespace Accounting.Core.Domain.Journals.Enums;
 
 public sealed class JournalStatus : Enumeration<JournalStatus>
 {

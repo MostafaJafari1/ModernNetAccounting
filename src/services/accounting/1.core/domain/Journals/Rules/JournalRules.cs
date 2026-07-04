@@ -1,10 +1,10 @@
-﻿using Accounting.Core.Domain.Journals.Rules;
+﻿using Accounting.Core.Domain.Journals.Enums;
 using BuildingBlocks.Domain.Rules;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Accounting.Core.Domain.Journals;
+namespace Accounting.Core.Domain.Journals.Rules;
 
 public static class JournalRules
 {
