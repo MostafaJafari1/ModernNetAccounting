@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Accounting.Core.Domain.Journals;
+namespace Accounting.Core.Domain.Journals.Enums;
 
 public sealed class JournalType : Enumeration<JournalType>
 {

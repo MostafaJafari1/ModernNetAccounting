@@ -1,4 +1,5 @@
 ﻿using Accounting.Core.Domain.Journals;
+using Accounting.Core.Domain.Journals.Enums;
 using Accounting.Core.Domain.Journals.ValueObjects;
 using Accounting.Core.RequestResponse.Journals.Dtos;
 using BuildingBlocks.Domain.Exceptions;

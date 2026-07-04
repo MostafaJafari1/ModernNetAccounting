@@ -11,7 +11,11 @@
     <Project Path="src/buildingblocks/src/common/BuildingBlocks.Common.csproj" />
     <Project Path="src/buildingblocks/src/contracts/BuildingBlocks.Contracts/BuildingBlocks.Contracts.csproj" Id="27a5b132-49ec-4534-907b-10702893e3d1" />
     <Project Path="src/buildingblocks/src/domain/BuildingBlocks.Domain.csproj" />
-    <Project Path="src/buildingblocks/src/infrastructure/BuildingBlocks.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/buildingblocks/src/Infrastructure/" />
+  <Folder Name="/src/buildingblocks/src/Infrastructure/Data/">
+    <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Sql.Read/BuildingBlocks.Infrastructure.Data.Sql.Read.csproj" Id="374b1944-be32-4757-888b-ab22f4a8a0c0" />
+    <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Sql.Write/BuildingBlocks.Infrastructure.Data.Sql.Write.csproj" Id="6e78f653-70d5-4cd7-8140-f3ee33ff2781" />
   </Folder>
   <Folder Name="/src/buildingblocks/tests/">
     <Project Path="src/buildingblocks/tests/BuildingBlocks.Common.Tests/BuildingBlocks.Common.Tests.csproj" />
@@ -32,6 +36,7 @@
   <Folder Name="/src/services/accounting/2.infrastructure/" />
   <Folder Name="/src/services/accounting/2.infrastructure/data/">
     <Project Path="src/services/accounting/2.infrastructure/data/Accounting.Infrastructure.Data.EventSourcing.Write/Accounting.Infrastructure.Data.EventSourcing.Write.csproj" Id="f498d413-9b7c-488c-a402-b6c13c4742a6" />
+    <Project Path="src/services/accounting/2.infrastructure/data/Accounting.Infrastructure.Data.Sql.Write/Accounting.Infrastructure.Data.Sql.Write.csproj" Id="03ebbb4e-e781-4602-87db-cc72bf79b2c2" />
   </Folder>
   <Folder Name="/src/services/accounting/2.infrastructure/externalapi/" />
   <Folder Name="/src/services/accounting/3.endpoints/">

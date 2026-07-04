@@ -11,6 +11,8 @@
 		<PackageReference Include="WolverineFx.RuntimeCompilation" Version="6.7.0" />
 		<PackageReference Include="WolverineFx.Marten" Version="6.8.0" />
 		<PackageReference Include="Npgsql" Version="9.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4"/>
+		
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integrations.Marten\BuildingBlocks.Integrations.Marten.csproj" />
@@ -20,5 +22,6 @@
 		<ProjectReference Include="..\..\1.core\request-response\Accounting.Core.RequestResponse.csproj" />
 		<ProjectReference Include="..\..\1.core\resources\Accounting.Core.Resources.csproj" />
 		<ProjectReference Include="..\..\2.infrastructure\data\Accounting.Infrastructure.Data.EventSourcing.Write\Accounting.Infrastructure.Data.EventSourcing.Write.csproj" />
+		<ProjectReference Include="..\..\2.infrastructure\data\Accounting.Infrastructure.Data.Sql.Write\Accounting.Infrastructure.Data.Sql.Write.csproj" />
 	</ItemGroup>
 </Project>

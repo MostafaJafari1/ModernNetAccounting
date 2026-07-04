@@ -4,12 +4,14 @@ using Accounting.Core.Domain.Journals.Events;
 using Accounting.Core.RequestResponse.Journals.Commands;
 using Accounting.Infrastructure.Data.EventSourcing.Write;
 using Accounting.Infrastructure.Data.EventSourcing.Write.Journals;
+using Accounting.Infrastructure.Data.Sql.Write;
 using Asp.Versioning;
 using BuildingBlocks.API.Infrastructure.ExceptionHandlers;
 using BuildingBlocks.API.Infrastructure.Extensions;
 using BuildingBlocks.Integrations.Marten.Extensions;
 using FluentValidation;
 using JasperFx;
+using JasperFx.CodeGeneration.Model;
 using JasperFx.Events;
 using JasperFx.Events.Daemon;
 using JasperFx.Events.Projections;
@@ -27,6 +29,9 @@ var accountingSettings = builder.Configuration
     .GetSection("Accounting")
     .Get<AccountingMartenSettings>() ?? new AccountingMartenSettings();
 
+//Postgress DB SQL
+builder.AddAccountingInfrastructure(builder.Configuration.GetConnectionString("Default")!);
+
 //Marten EventSorucing Database Configuration
 builder.Services
     .AddMartenDefaults(
@@ -43,6 +48,8 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateJournalCommandValidat
 
 builder.Host.UseWolverine(opts =>
 {
+    opts.ServiceLocationPolicy = ServiceLocationPolicy.AlwaysAllowed;
+
     opts.UseFluentValidation();
 
     opts.Discovery.IncludeAssembly(typeof(CreateJournalCommandHandler).Assembly);
