@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\buildingblocks\src\infrastructure\data\BuildingBlocks.Infrastructure.Data.Sql.Write\BuildingBlocks.Infrastructure.Data.Sql.Write.csproj" />
+    <ProjectReference Include="..\..\..\1.core\contracts\Accounting.Core.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\1.core\domain\Accounting.Core.Domain.csproj" />
+    <ProjectReference Include="..\Accounting.Infrastructure.Data.EventSourcing.Write\Accounting.Infrastructure.Data.EventSourcing.Write.csproj" />
+  </ItemGroup>
+
+</Project>
