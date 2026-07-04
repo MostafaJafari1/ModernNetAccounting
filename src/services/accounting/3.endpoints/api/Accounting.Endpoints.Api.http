@@ -48,3 +48,23 @@ Content-Type: application/json
     }
   ]
 }
+
+###
+
+// Create a New Account
+POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/account
+Content-Type: application/json
+
+{
+  "code": "1",
+  "name": "حساب معین موجودی نقد و بانک",
+  "parentId": null,
+  "level": 1, 
+  "nature": 1,
+  "isPostable": true
+}
+
+### //ساخت migration
+### dotnet ef migrations add InitialCreate -p src/services/accounting/2.infrastructure/data/Accounting.Infrastructure.Data.Sql.Write -s src/services/accounting/3.endpoints/api -c AccountingCommandDbContext
+### //اعمال روی دیتابیس
+### dotnet ef database update -p src/services/accounting/2.infrastructure/data/Accounting.Infrastructure.Data.Sql.Write -s src/services/accounting/3.endpoints/api -c AccountingCommandDbContext
