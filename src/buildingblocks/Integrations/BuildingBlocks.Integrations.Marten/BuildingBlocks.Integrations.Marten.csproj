@@ -10,4 +10,8 @@
     <PackageReference Include="Marten" Version="9.7.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\infrastructure\data\BuildingBlocks.Infrastructure.Data.Write\BuildingBlocks.Infrastructure.Data.Write.csproj" />
+  </ItemGroup>
+
 </Project>
