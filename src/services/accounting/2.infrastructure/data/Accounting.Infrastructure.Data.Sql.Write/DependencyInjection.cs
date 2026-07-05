@@ -1,13 +1,13 @@
 ﻿using Accounting.Core.Contracts.Accounts;
+using Accounting.Core.Domain.Accounts.Services;
 using Accounting.Infrastructure.Data.Sql.Write.Accounts;
-using Microsoft.Extensions.Configuration;
+using Accounting.Infrastructure.Data.Sql.Write.Services;
+using BuildingBlocks.Infrastructure.Data.Sql.Write;
+using BuildingBlocks.Infrastructure.Data.Write;
+using Microsoft.EntityFrameworkCore; 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore; 
-using Npgsql.EntityFrameworkCore.PostgreSQL;
+
 
 namespace Accounting.Infrastructure.Data.Sql.Write;
 
@@ -20,6 +20,10 @@ public static class DependencyInjection
 
         builder.Services.AddScoped<DbContext>(provider =>
             provider.GetRequiredService<AccountingCommandDbContext>());
+
+        builder.Services.AddScoped<IUnitOfWork, EfUnitOfWork<AccountingCommandDbContext>>();
+
+        builder.Services.AddScoped<IAccountUniquenessChecker, AccountUniquenessChecker>();
 
         builder.Services.AddScoped<IAccountCommandRepository, AccountCommandRepository>();
 

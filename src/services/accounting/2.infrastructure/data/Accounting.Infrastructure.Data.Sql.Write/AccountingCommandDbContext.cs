@@ -4,6 +4,7 @@ using BuildingBlocks.Infrastructure.Data.Sql.Write;
 using Microsoft.EntityFrameworkCore;
 
 namespace Accounting.Infrastructure.Data.Sql.Write;
+
 public class AccountingCommandDbContext : BaseCommandDbContext
 {
     public AccountingCommandDbContext(DbContextOptions<AccountingCommandDbContext> options)
@@ -17,7 +18,6 @@ public class AccountingCommandDbContext : BaseCommandDbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        //Apply all configs auto
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AccountConfiguration).Assembly);
     }
 }

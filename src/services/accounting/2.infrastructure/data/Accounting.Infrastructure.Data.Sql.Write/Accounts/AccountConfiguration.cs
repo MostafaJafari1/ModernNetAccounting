@@ -1,4 +1,5 @@
 ﻿using Accounting.Core.Domain.Accounts;
+using Accounting.Infrastructure.Data.Sql.Write.Accounts.ValueConverters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,7 +15,7 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
         builder.HasKey(a => a.Id);
 
         builder.Property(a => a.Code)
-            .HasConversion<AccountCodeConversion>()
+            .HasConversion<AccountCodeConverter>()
             .HasColumnName("Code")
             .HasMaxLength(50)
             .IsRequired();
@@ -22,18 +23,18 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
         builder.HasIndex(a => a.Code).IsUnique();
 
         builder.Property(a => a.Name)
-            .HasConversion<AccountNameConversion>()
+            .HasConversion<AccountNameConverter>()
             .HasColumnName("Name")
             .HasMaxLength(250)
             .IsRequired();
 
         builder.Property(a => a.Level)
-            .HasConversion<AccountLevelConversion>()
+            .HasConversion<AccountLevelConverter>()
             .HasColumnName("Level")
             .IsRequired();
 
         builder.Property(a => a.Nature)
-            .HasConversion<AccountNatureConversion>()
+            .HasConversion<AccountNatureConverter>()
             .HasColumnName("Nature")
             .IsRequired();
 
