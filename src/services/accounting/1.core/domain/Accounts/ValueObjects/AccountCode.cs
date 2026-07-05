@@ -18,6 +18,11 @@ public record AccountCode : ValueObject
         Value = value;
     }
 
+    public static AccountCode FromDatabase(string value)
+    {
+        return new AccountCode(value);
+    }
+
     /// <summary>
     /// Factory method to validate and create an account code.
     /// </summary>

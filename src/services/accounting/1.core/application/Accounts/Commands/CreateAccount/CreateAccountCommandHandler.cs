@@ -1,19 +1,12 @@
-﻿using Accounting.Core.Contracts.Accounts;
-using Accounting.Core.Domain.Accounts;
-using Accounting.Core.Domain.Accounts.Enums;
-using Accounting.Core.Domain.Accounts.ValueObjects;
-using Accounting.Infrastructure.Data.Sql.Write;
-using BuildingBlocks.Domain.Primitives;
-using Microsoft.EntityFrameworkCore;
-using static FastExpressionCompiler.ExpressionCompiler;
+﻿using BuildingBlocks.Infrastructure.Data.Write;
 
 namespace Accounting.Core.Application.Accounts.Commands.CreateAccount;
 
 public class CreateAccountCommandHandler(
      ILogger<CreateAccountCommandHandler> logger,
-     IMessageBus _bus,
      IAccountCommandRepository _accountRepository,
-     AccountingCommandDbContext _context
+     IAccountUniquenessChecker _accountUniquenessChecker,
+     IUnitOfWork _unitOfWork
     ) :
      BaseCommandHandler<CreateAccountCommand, Unit>(logger)
 {
@@ -21,30 +14,32 @@ public class CreateAccountCommandHandler(
         CreateAccountCommand command,
         CancellationToken cancellationToken)
     {
+        var accountLevel = Enumeration<AccountLevel>.FromValue((int)command.Level)!;
+        var accountNature = Enumeration<AccountNature>.FromValue((int)command.Nature)!;
 
-        var accountName = AccountName.Create(command.Name);
+        var accountCode = AccountCode.FromString(command.Code, accountLevel);
 
-        var accountCode = AccountCode.FromString(command.Code, Enumeration<AccountLevel>.FromValue((int)command.Level)!);
+        var isUnique = await _accountUniquenessChecker.IsCodeUniqueAsync(accountCode, cancellationToken);
+        if (!isUnique)
+            return Result<Unit>.Failure(
+            new Error(
+                ValidationMessages.Account_DuplicateCode,
+                ValidationMessages.Account_DuplicateCodeMessage,
+                ErrorType.Conflict
+            ));
 
-        var isCodeUnique = await _accountRepository.IsCodeUniqueAsync(accountCode, cancellationToken);
-        if (!isCodeUnique)
-        {
-            throw new Exception("duplicate");
-            //return Result.Fail<Unit>($"حسابی با کد '{command.Code}' از قبل در سیستم تعریف شده است.");
-        }
 
         var account = Account.Create(
             accountCode,
-            accountName,
+            AccountName.Create(command.Name),
             command.ParentId,
-            Enumeration<AccountLevel>.FromValue((int)command.Level)!,
-            Enumeration<AccountNature>.FromValue((int)command.Nature)!,
+            accountLevel,
+            accountNature,
             command.IsPostable
         );
 
-        await _accountRepository.AddAsync(account);
-        await _context.SaveChangesAsync();
-
+        await _accountRepository.AddAsync(account, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return Result<Unit>.Success(Unit.Value);
     }

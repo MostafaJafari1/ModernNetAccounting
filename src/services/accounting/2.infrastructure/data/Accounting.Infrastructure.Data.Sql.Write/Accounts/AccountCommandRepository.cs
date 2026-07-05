@@ -13,10 +13,6 @@ public class AccountCommandRepository : BaseCommandRepository<Account, Guid>, IA
 
     public async Task<bool> IsCodeUniqueAsync(AccountCode code, CancellationToken cancellationToken = default)
     {
-
-        // ۲. مقایسه شیء با شیء (EF Core پشت صحنه هر دو را تبدیل به رشته دیتابیس می‌کند)
         return !await _dbSet.AnyAsync(a => a.Code == code, cancellationToken);
-
-        //return !await _dbSet.AnyAsync(a => a.Code.Value == code, cancellationToken);
     }
 }

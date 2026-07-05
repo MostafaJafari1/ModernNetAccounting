@@ -56,10 +56,10 @@ POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/account
 Content-Type: application/json
 
 {
-  "code": "1",
+  "code": "10",
   "name": "حساب معین موجودی نقد و بانک",
   "parentId": null,
-  "level": 1, 
+  "level": 2, 
   "nature": 1,
   "isPostable": true
 }

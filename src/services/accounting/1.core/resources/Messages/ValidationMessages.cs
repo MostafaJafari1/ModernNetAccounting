@@ -26,6 +26,9 @@ public static class ValidationMessages
     public const string Account_NameMaxLength = "Account name length exceeds the maximum limit.";
     public const string Account_InvalidLevel = "The selected account level is invalid.";
     public const string Account_InvalidNature = "The selected account nature is invalid.";
+
+    public const string Account_DuplicateCode = "Account.DuplicateCode";
+    public const string Account_DuplicateCodeMessage = "The requested user was not found.";
     #endregion
 
 }

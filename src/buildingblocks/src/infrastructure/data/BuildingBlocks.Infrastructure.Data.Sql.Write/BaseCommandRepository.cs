@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 
 namespace BuildingBlocks.Infrastructure.Data.Sql.Write;
+
 public class BaseCommandRepository<TEntity, TId> : IBaseCommandRepository<TEntity, TId> where TEntity : AggregateRoot
 {
     protected readonly DbContext _context;
@@ -30,10 +31,10 @@ public class BaseCommandRepository<TEntity, TId> : IBaseCommandRepository<TEntit
         return await query.FirstOrDefaultAsync(e => Equals(e.Id, id));
     }
 
-    public virtual async Task AddAsync(TEntity entity)
+    public virtual async Task AddAsync(TEntity entity, CancellationToken cancellationToken)
     {
         if (entity == null) throw new ArgumentNullException(nameof(entity));
-        await _dbSet.AddAsync(entity);
+        await _dbSet.AddAsync(entity, cancellationToken);
     }
 
     public virtual void Update(TEntity entity)

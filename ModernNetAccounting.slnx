@@ -16,6 +16,7 @@
   <Folder Name="/src/buildingblocks/src/Infrastructure/Data/">
     <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Sql.Read/BuildingBlocks.Infrastructure.Data.Sql.Read.csproj" Id="374b1944-be32-4757-888b-ab22f4a8a0c0" />
     <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Sql.Write/BuildingBlocks.Infrastructure.Data.Sql.Write.csproj" Id="6e78f653-70d5-4cd7-8140-f3ee33ff2781" />
+    <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Write/BuildingBlocks.Infrastructure.Data.Write.csproj" Id="30400ed9-40c6-43c6-b9a3-57bc8a32e95d" />
   </Folder>
   <Folder Name="/src/buildingblocks/tests/">
     <Project Path="src/buildingblocks/tests/BuildingBlocks.Common.Tests/BuildingBlocks.Common.Tests.csproj" />

@@ -1,10 +1,4 @@
-﻿using Accounting.Core.Contracts.Journals.IntegrationEvents;
-using Accounting.Core.Domain.Journals.Events;
-using BuildingBlocks.Application.CQRS.Events;
-using Microsoft.Extensions.Logging;
-using Wolverine;
-
-namespace Accounting.Core.Application.Journals.EventHandlers;
+﻿namespace Accounting.Core.Application.Journals.EventHandlers;
 public class JournalEntryCreatedEventHandler(
     ILogger<JournalEntryCreatedEventHandler> logger,
     IMessageBus _bus)
