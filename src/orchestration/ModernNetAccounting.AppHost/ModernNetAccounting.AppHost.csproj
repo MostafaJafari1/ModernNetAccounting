@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\services\accounting\3.endpoints\api\Accounting.Endpoints.Api.csproj" />
+    <ProjectReference Include="..\..\services\financialreporting\3.endpoints\FinancialReporting.Endpoints.Api\FinancialReporting.Endpoints.Api.csproj" />
   </ItemGroup>
 
 </Project>
