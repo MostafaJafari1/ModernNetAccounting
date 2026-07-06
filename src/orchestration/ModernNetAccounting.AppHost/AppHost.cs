@@ -8,4 +8,6 @@ var apiService = builder.AddProject<Projects.Accounting_Endpoints_Api>("api-serv
 // اگر می‌خواهید مطمئن شوید اسپایر از تنظیمات لانچ استفاده می‌کند، این متد استاندارد است:
 apiService.WithEnvironment("ASPNETCORE_ENVIRONMENT", "Development");
 
+builder.AddProject<Projects.FinancialReporting_Endpoints_Api>("financialreporting-endpoints-api");
+
 builder.Build().Run();
