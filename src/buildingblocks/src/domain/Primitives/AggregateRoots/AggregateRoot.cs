@@ -4,15 +4,14 @@ namespace BuildingBlocks.Domain.Primitives.AggregateRoots;
 
 public abstract class AggregateRoot : Entity, IAggregateRoot
 {
-    // لیست داخلی رویدادهای دامنه
-    private readonly List<IDomainEvent> _domainEvents = new();
+    private List<IDomainEvent> _domainEvents = new();
 
     protected AggregateRoot() { }
 
     protected AggregateRoot(Guid id) : base(id) { }
 
     public IReadOnlyCollection<IDomainEvent> GetDomainEvents() =>
-        _domainEvents.AsReadOnly();
+        (_domainEvents ??= new List<IDomainEvent>()).AsReadOnly();
 
     public void ClearDomainEvents() => _domainEvents.Clear();
 
@@ -22,10 +21,14 @@ public abstract class AggregateRoot : Entity, IAggregateRoot
     //Use For Soft Delete
     public virtual void Delete()
     {
-        if (IsDeleted) return; 
+        if (IsDeleted) return;
         this.IsDeleted = true;
     }
 
-    protected void RaiseDomainEvent(IDomainEvent domainEvent) =>
+    protected void RaiseDomainEvent(IDomainEvent domainEvent)
+    {
+        _domainEvents ??= new List<IDomainEvent>();
+
         _domainEvents.Add(domainEvent);
+    }
 }
