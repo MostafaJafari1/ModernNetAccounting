@@ -1,17 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Marten" Version="9.7.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Marten" Version="9.7.3" />
+		<PackageReference Include="WolverineFx.Marten" Version="6.8.0" />
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\infrastructure\data\BuildingBlocks.Infrastructure.Data.Write\BuildingBlocks.Infrastructure.Data.Write.csproj" />
-  </ItemGroup>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\application\BuildingBlocks.Application.csproj" />
+		<ProjectReference Include="..\..\src\domain\BuildingBlocks.Domain.csproj" />
+		<ProjectReference Include="..\..\src\infrastructure\data\BuildingBlocks.Infrastructure.Data.Write\BuildingBlocks.Infrastructure.Data.Write.csproj" />
+	</ItemGroup>
 
 </Project>
