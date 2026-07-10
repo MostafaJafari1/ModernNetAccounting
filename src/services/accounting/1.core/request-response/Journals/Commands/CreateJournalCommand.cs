@@ -1,11 +1,4 @@
-﻿using Accounting.Core.RequestResponse.Journals.Dtos;
-using BuildingBlocks.Application.Common;
-using BuildingBlocks.Contracts.Application.CQRS.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Accounting.Core.RequestResponse.Journals.Commands
+﻿namespace Accounting.Core.RequestResponse.Journals.Commands
 {
     public class CreateJournalCommand : ICommand<Unit>
     {

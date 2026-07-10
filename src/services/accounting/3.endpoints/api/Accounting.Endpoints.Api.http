@@ -64,6 +64,13 @@ Content-Type: application/json
   "isPostable": true
 }
 
+###
+
+POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal/3231dd33-2a88-4b36-bab5-ac45960eb307/post
+Content-Type: application/json
+
+{}
+
 ### //ساخت migration
 ### dotnet ef migrations add InitialCreate -p src/services/accounting/2.infrastructure/data/Accounting.Infrastructure.Data.Sql.Write -s src/services/accounting/3.endpoints/api -c AccountingCommandDbContext
 ### //اعمال روی دیتابیس

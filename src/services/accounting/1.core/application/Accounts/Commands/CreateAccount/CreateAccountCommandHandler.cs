@@ -8,7 +8,7 @@ public class CreateAccountCommandHandler(
      IAccountUniquenessChecker _accountUniquenessChecker,
      IUnitOfWork _unitOfWork
     ) :
-     BaseCommandHandler<CreateAccountCommand, Unit>(logger)
+     BaseCommandHandler<CreateAccountCommand, Unit>(logger) 
 {
     protected override async Task<Result<Unit>> HandleAsync(
         CreateAccountCommand command,

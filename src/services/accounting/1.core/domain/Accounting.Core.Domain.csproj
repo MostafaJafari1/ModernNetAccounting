@@ -1,18 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\buildingblocks\src\common\BuildingBlocks.Common.csproj" />
-    <ProjectReference Include="..\..\..\..\buildingblocks\src\domain\BuildingBlocks.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\buildingblocks\src\common\BuildingBlocks.Common.csproj" />
+		<ProjectReference Include="..\..\..\..\buildingblocks\src\domain\BuildingBlocks.Domain.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Accounts\Rules\" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<Folder Include="Accounts\Rules\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Marten" Version="9.7.3" />
+	</ItemGroup>
 </Project>

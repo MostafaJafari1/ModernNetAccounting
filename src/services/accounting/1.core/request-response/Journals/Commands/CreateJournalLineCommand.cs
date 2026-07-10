@@ -1,9 +1,4 @@
-﻿using BuildingBlocks.Contracts.Application.CQRS.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Accounting.Core.RequestResponse.Journals.Commands
+﻿namespace Accounting.Core.RequestResponse.Journals.Commands
 {
     public class CreateJournalLineCommand : ICommand
     {

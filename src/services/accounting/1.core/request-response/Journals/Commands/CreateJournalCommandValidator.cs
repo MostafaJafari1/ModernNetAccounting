@@ -1,8 +1,4 @@
-﻿using Accounting.Core.Resources.Constants;
-using Accounting.Core.Resources.Messages;
-using FluentValidation;
-
-namespace Accounting.Core.RequestResponse.Journals.Commands;
+﻿namespace Accounting.Core.RequestResponse.Journals.Commands;
 
 public class CreateJournalCommandValidator : AbstractValidator<CreateJournalCommand>
 {

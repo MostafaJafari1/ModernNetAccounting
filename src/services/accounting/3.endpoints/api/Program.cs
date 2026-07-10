@@ -1,24 +1,7 @@
-using Accounting.Core.Application.Journals.Commands.CreateJournal;
-using Accounting.Core.Contracts.Journals;
-using Accounting.Core.Domain.Journals.Events;
-using Accounting.Core.RequestResponse.Journals.Commands;
-using Accounting.Infrastructure.Data.EventSourcing.Write;
-using Accounting.Infrastructure.Data.EventSourcing.Write.Journals;
-using Accounting.Infrastructure.Data.Sql.Write;
-using Asp.Versioning;
-using BuildingBlocks.API.Infrastructure.ExceptionHandlers;
-using BuildingBlocks.API.Infrastructure.Extensions;
-using BuildingBlocks.Integrations.Marten.Extensions;
-using FluentValidation;
-using JasperFx;
-using JasperFx.CodeGeneration.Model;
-using JasperFx.Events;
-using JasperFx.Events.Daemon;
-using JasperFx.Events.Projections;
-using Marten;
-using Wolverine;
-using Wolverine.FluentValidation;
-using Wolverine.Marten;
+using Accounting.Core.Domain.Journals;
+using System.Collections;
+using Wolverine.Configuration;
+using Wolverine.ErrorHandling;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +31,20 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateJournalCommandValidat
 
 builder.Host.UseWolverine(opts =>
 {
+    opts.Durability.KeepAfterMessageHandling = TimeSpan.FromDays(7);
+    opts.Policies.AutoApplyTransactions();
+    opts.Policies.UseDurableLocalQueues();
+    opts.Policies.UseDurableInboxOnAllListeners();
+    opts.Policies.UseDurableOutboxOnAllSendingEndpoints();
+    
+    opts.Policies.OnException<Exception>()
+          .RetryWithCooldown(
+            TimeSpan.FromSeconds(5), // تلاش اول پس از ۵ ثانیه
+            TimeSpan.FromSeconds(5) // تلاش دوم پس از ۵ ثانیه دیگر
+        );
+
+
+
     opts.ServiceLocationPolicy = ServiceLocationPolicy.AlwaysAllowed;
 
     opts.UseFluentValidation();

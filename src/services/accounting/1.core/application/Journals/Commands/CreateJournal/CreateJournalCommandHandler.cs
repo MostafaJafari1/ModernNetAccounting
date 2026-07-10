@@ -1,7 +1,14 @@
-﻿namespace Accounting.Core.Application.Journals.Commands.CreateJournal;
+﻿using BuildingBlocks.Integrations.Marten;
+using Marten;
+using Wolverine.Marten;
+
+namespace Accounting.Core.Application.Journals.Commands.CreateJournal;
+
 public class CreateJournalCommandHandler(
     ILogger<CreateJournalCommandHandler> logger,
-    IJournalRepository _journalRepository, IMessageBus _bus) :
+    IJournalRepository _journalRepository,
+    IMartenOutbox outbox,
+    IDocumentSession session) :
     BaseCommandHandler<CreateJournalCommand, Unit>(logger)
 {
     protected override async Task<Result<Unit>> HandleAsync(
@@ -28,12 +35,12 @@ public class CreateJournalCommandHandler(
 
         var events = journal.GetDomainEvents();
 
+        await outbox.PublishDomainEventsAsync(events, logger);
+
         await _journalRepository.AppendEventsAsync(
             journal.Id,
             events: events,
             cancellationToken: cancellationToken);
-
-        await _bus.PublishDomainEventsAsync(events);
 
         journal.ClearDomainEvents();
 

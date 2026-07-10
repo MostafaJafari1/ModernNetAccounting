@@ -14,7 +14,6 @@ public class JournalEntryCreatedEventHandler(
             Description: domainEvent.Description,
             HappenedAt: DateTime.UtcNow
         );
-
-        await _bus.PublishAsync(integrationEvent);
+        //await _bus.PublishAsync(integrationEvent);
     }
 }

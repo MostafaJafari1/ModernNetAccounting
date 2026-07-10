@@ -11,17 +11,18 @@ using System.Text;
 
 namespace Accounting.Core.Domain.Journals
 {
-    public class JournalEntry : EventSourcedAggregateRoot
+    public partial class JournalEntry : EventSourcedAggregateRoot
     {
         public DateOnly Date { get; private set; }
         public JournalDescription Description { get; private set; } = default!;
         public JournalStatus Status { get; private set; } = default!;
         public JournalType Type { get; private set; } = default!;
-        public IReadOnlyList<JournalLine> Lines => _lines;
 
-        private readonly List<JournalLine> _lines = new();
+        private List<JournalLine> _lines = new();
+        public IReadOnlyList<JournalLine> Lines => _lines ??= new List<JournalLine>();
 
-        private JournalEntry() { }
+
+        private JournalEntry() { _lines = new List<JournalLine>(); }
 
         public static JournalEntry Create(
              Guid id,
@@ -101,7 +102,7 @@ namespace Accounting.Core.Domain.Journals
 
         public void Apply(JournalEntryCreated @event)
         {
-            SetId(@event.JournalEntryId);
+            Id = @event.JournalEntryId;
             Date = @event.Date;
             Description = (JournalDescription)@event.Description;
             Type = JournalType.FromValue(@event.JournalTypeId)!;
@@ -110,6 +111,8 @@ namespace Accounting.Core.Domain.Journals
 
         public void Apply(JournalLineAdded @event)
         {
+            _lines ??= new List<JournalLine>();
+
             var line = new JournalLine(
                 id: @event.LineId,
                 accountId: @event.AccountId,
