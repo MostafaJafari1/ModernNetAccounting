@@ -1,24 +1,24 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/buildingblocks/" />
-  <Folder Name="/src/buildingblocks/Integrations/">
+  <Folder Name="/src/building-blocks/" />
+  <Folder Name="/src/building-blocks/Integrations/">
     <Project Path="src/buildingblocks/Integrations/BuildingBlocks.Integrations.Marten/BuildingBlocks.Integrations.Marten.csproj" />
     <Project Path="src/buildingblocks/Integrations/BuildingBlocks.Integrations.Wolverine/BuildingBlocks.Integrations.Wolverine.csproj" />
   </Folder>
-  <Folder Name="/src/buildingblocks/src/">
+  <Folder Name="/src/building-blocks/src/">
     <Project Path="src/buildingblocks/src/api/BuildingBlocks.API.csproj" />
     <Project Path="src/buildingblocks/src/application/BuildingBlocks.Application.csproj" />
     <Project Path="src/buildingblocks/src/common/BuildingBlocks.Common.csproj" />
     <Project Path="src/buildingblocks/src/contracts/BuildingBlocks.Contracts/BuildingBlocks.Contracts.csproj" Id="27a5b132-49ec-4534-907b-10702893e3d1" />
     <Project Path="src/buildingblocks/src/domain/BuildingBlocks.Domain.csproj" />
   </Folder>
-  <Folder Name="/src/buildingblocks/src/Infrastructure/" />
-  <Folder Name="/src/buildingblocks/src/Infrastructure/Data/">
+  <Folder Name="/src/building-blocks/src/Infrastructure/" />
+  <Folder Name="/src/building-blocks/src/Infrastructure/Data/">
     <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Sql.Read/BuildingBlocks.Infrastructure.Data.Sql.Read.csproj" Id="374b1944-be32-4757-888b-ab22f4a8a0c0" />
     <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Sql.Write/BuildingBlocks.Infrastructure.Data.Sql.Write.csproj" Id="6e78f653-70d5-4cd7-8140-f3ee33ff2781" />
     <Project Path="src/buildingblocks/src/infrastructure/data/BuildingBlocks.Infrastructure.Data.Write/BuildingBlocks.Infrastructure.Data.Write.csproj" Id="30400ed9-40c6-43c6-b9a3-57bc8a32e95d" />
   </Folder>
-  <Folder Name="/src/buildingblocks/tests/">
+  <Folder Name="/src/building-blocks/tests/">
     <Project Path="src/buildingblocks/tests/BuildingBlocks.Common.Tests/BuildingBlocks.Common.Tests.csproj" />
     <Project Path="src/buildingblocks/tests/BuildingBlocks.Domain.Tests/BuildingBlocks.Domain.Tests.csproj" />
   </Folder>
@@ -43,15 +43,15 @@
   <Folder Name="/src/services/accounting/3.endpoints/">
     <Project Path="src/services/accounting/3.endpoints/api/Accounting.Endpoints.Api.csproj" />
   </Folder>
-  <Folder Name="/src/services/financialreporting/" />
-  <Folder Name="/src/services/financialreporting/1.core/">
+  <Folder Name="/src/services/financial-reporting/" />
+  <Folder Name="/src/services/financial-reporting/1.core/">
     <Project Path="src/services/financialreporting/1.core/FinancialReporting.Core.Application/FinancialReporting.Core.Application.csproj" Id="e9eff8cc-079d-4e72-a83d-75cfb7e06516" />
     <Project Path="src/services/financialreporting/1.core/FinancialReporting.Core.Contracts/FinancialReporting.Core.Contracts.csproj" Id="c286c887-d443-4724-b33e-db2094adbbc6" />
     <Project Path="src/services/financialreporting/1.core/FinancialReporting.Core.RequestResponse/FinancialReporting.Core.RequestResponse.csproj" Id="57836e02-5463-4540-8846-8865e38ce667" />
     <Project Path="src/services/financialreporting/1.core/FinancialReporting.Core.Resources/FinancialReporting.Core.Resources.csproj" Id="db8224ff-6bab-455e-99c4-e7370b1949e0" />
   </Folder>
-  <Folder Name="/src/services/financialreporting/2.infrastructure/" />
-  <Folder Name="/src/services/financialreporting/3.endpoints/">
+  <Folder Name="/src/services/financial-reporting/2.infrastructure/" />
+  <Folder Name="/src/services/financial-reporting/3.endpoints/">
     <Project Path="src/services/financialreporting/3.endpoints/FinancialReporting.Endpoints.Api/FinancialReporting.Endpoints.Api.csproj" />
   </Folder>
   <Folder Name="/src/services/tests/" />
