@@ -18,7 +18,7 @@ namespace Accounting.Infrastructure.Data.EventSourcing.Write
 
             options.Events.StreamIdentity = StreamIdentity.AsGuid;
 
-            options.Projections.Snapshot<JournalEntry>(SnapshotLifecycle.Inline);
+            //options.Projections.Snapshot<JournalEntry>(SnapshotLifecycle.Inline);
 
             options.DatabaseSchemaName = accountingSettings.SchemaName;
             options.Events.DatabaseSchemaName = accountingSettings.EventsSchemaName;
