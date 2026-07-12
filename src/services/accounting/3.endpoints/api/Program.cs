@@ -1,7 +1,9 @@
+using Accounting.Core.Contracts.Journals.IntegrationEvents;
 using Accounting.Core.Domain.Journals;
 using System.Collections;
 using Wolverine.Configuration;
 using Wolverine.ErrorHandling;
+using Wolverine.Kafka;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,13 +38,19 @@ builder.Host.UseWolverine(opts =>
     opts.Policies.UseDurableLocalQueues();
     opts.Policies.UseDurableInboxOnAllListeners();
     opts.Policies.UseDurableOutboxOnAllSendingEndpoints();
-    
+
+    #region Kafka Integration
+    opts.UseKafka("localhost:9092,localhost:9095,localhost:9096");
+
+    KafkaSubscriberConfiguration kafkaSubscriberConfiguration = opts.PublishMessage<JournalEntryPostedIntegrationEvent>()
+      .ToKafkaTopic("journal-entry-events"); 
+    #endregion
+
     opts.Policies.OnException<Exception>()
           .RetryWithCooldown(
             TimeSpan.FromSeconds(5), // تلاش اول پس از ۵ ثانیه
             TimeSpan.FromSeconds(5) // تلاش دوم پس از ۵ ثانیه دیگر
         );
-
 
 
     opts.ServiceLocationPolicy = ServiceLocationPolicy.AlwaysAllowed;
