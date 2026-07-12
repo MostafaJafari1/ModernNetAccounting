@@ -1,24 +1,25 @@
-﻿using BuildingBlocks.Domain.Abstractions;
-using BuildingBlocks.Domain.Events;
+﻿using BuildingBlocks.Contracts.Application.CQRS.Event;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Wolverine.Attributes;
 
-namespace Accounting.Core.Domain.Journals.Events;
+namespace Accounting.Core.Contracts.Journals.IntegrationEvents;
 
-public record JournalPosted(
+[MessageIdentity("journal-entry-posted")]
+public record JournalEntryPostedIntegrationEvent(
     Guid JournalEntryId,
     DateOnly Date,
     string Description,
     int JournalTypeId,
     string JournalTypeName,
-    List<JournalLineDomainDto> Lines) : IDomainEvent
+    List<JournalLineDto> Lines) : IIntegrationEvent
 {
     public Guid Id { get; } = Guid.NewGuid();
     public DateTime HappenedAt { get; } = DateTime.Now;
 }
 
-public record JournalLineDomainDto(
+public record JournalLineDto(
     Guid LineId,
     Guid AccountId,
     decimal Debit,
