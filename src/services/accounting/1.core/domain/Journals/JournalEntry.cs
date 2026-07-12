@@ -5,6 +5,7 @@ using Accounting.Core.Domain.Journals.ValueObjects;
 using BuildingBlocks.Domain.Abstractions;
 using BuildingBlocks.Domain.Primitives.AggregateRoots;
 using BuildingBlocks.Domain.Rules;
+using ImTools;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -82,9 +83,15 @@ namespace Accounting.Core.Domain.Journals
 
             EnsureBalanced();
 
-             var @event = new JournalPosted(
-                JournalEntryId: Id
-            );
+
+            var @event = new JournalPosted(
+               JournalEntryId: Id,
+               Date: Date,
+               Description: Description.Value,
+               JournalTypeId: Type.Value,
+               JournalTypeName: Type.Name,
+               Lines: _lines.Select(x => new JournalLineDomainDto(x.Id, x.AccountId, x.Debit, x.Credit)).ToList()
+           );
 
             Raise(@event);
         }
