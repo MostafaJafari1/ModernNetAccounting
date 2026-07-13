@@ -5,6 +5,9 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Compile Include="_Docs\KafkaCommandLines.txt" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8" />
 		<PackageReference Include="WolverineFx.FluentValidation" Version="6.11.0" />
