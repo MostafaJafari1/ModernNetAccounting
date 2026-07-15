@@ -5,7 +5,6 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<ItemGroup>
-	  <Compile Include="_Docs\KafkaCommandLines.txt" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
@@ -16,7 +15,6 @@
 		<PackageReference Include="WolverineFx.Marten" Version="6.8.0" />
 		<PackageReference Include="Npgsql" Version="9.0.4" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4" />
-		
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integrations.Marten\BuildingBlocks.Integrations.Marten.csproj" />
