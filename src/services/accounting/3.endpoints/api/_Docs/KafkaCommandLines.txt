@@ -1,3 +1,3 @@
-﻿#consunmer: it listen to journal-entry-events topic
+﻿consunmer: it listen to journal-entry-events topic
 
 docker exec -it kafka-broker /opt/kafka/bin/kafka-console-consumer.sh --topic journal-entry-events --from-beginning --bootstrap-server localhost:9092
