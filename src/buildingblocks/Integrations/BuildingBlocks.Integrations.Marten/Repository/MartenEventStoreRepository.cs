@@ -1,14 +1,9 @@
 ﻿using BuildingBlocks.Integrations.Marten.Events;
-using JasperFx.Events;
 using Marten;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BuildingBlocks.Integrations.Marten.Repository;
 
-public class MartenEventStoreRepository<TAggregate> :
-    IMartenEventStoreRepository<TAggregate>
+public class MartenEventStoreRepository<TAggregate> 
     where TAggregate : class
 {
     private readonly IDocumentSession _session;
@@ -59,13 +54,6 @@ public class MartenEventStoreRepository<TAggregate> :
         return await _session.Events.AggregateStreamAsync<TAggregate>(
             streamId,
             token: cancellationToken);
-    }
-
-    public async Task<StreamState?> GetStreamStateAsync(
-        Guid streamId,
-        CancellationToken cancellationToken = default)
-    {
-        return await _session.Events.FetchStreamStateAsync(streamId, cancellationToken);
     }
 
     public async Task ArchiveAsync(

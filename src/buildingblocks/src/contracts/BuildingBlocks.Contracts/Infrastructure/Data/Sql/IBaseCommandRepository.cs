@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace BuildingBlocks.Contracts.Infrastructure.Data;
+namespace BuildingBlocks.Contracts.Infrastructure.Data.Sql;
 
 public interface IBaseCommandRepository<TEntity, TId> where TEntity : AggregateRoot
 {
