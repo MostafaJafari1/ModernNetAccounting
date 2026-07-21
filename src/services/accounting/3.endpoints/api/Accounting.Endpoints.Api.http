@@ -66,7 +66,7 @@ Content-Type: application/json
 
 ###
 
-POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal/3ddf7c81-2569-4ce6-8cc6-c99a63b53c19/post
+POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal/896f0fdd-b6a5-4171-a4e8-8db27fa2e7f7/post
 Content-Type: application/json
 
 {}

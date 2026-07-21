@@ -1,6 +1,6 @@
 ﻿using Accounting.Core.Domain.Accounts;
 using Accounting.Core.Domain.Accounts.ValueObjects;
-using BuildingBlocks.Contracts.Infrastructure.Data;
+using BuildingBlocks.Contracts.Infrastructure.Data.Sql;
 using System;
 using System.Collections.Generic;
 using System.Text;

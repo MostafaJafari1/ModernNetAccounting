@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integrations.Wolverine\BuildingBlocks.Integrations.Wolverine.csproj" />
+    <ProjectReference Include="..\..\..\..\buildingblocks\src\application\BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\FinancialReporting.Core.Contracts\FinancialReporting.Core.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

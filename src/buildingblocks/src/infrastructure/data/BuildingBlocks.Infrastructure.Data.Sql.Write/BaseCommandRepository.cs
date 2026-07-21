@@ -1,4 +1,4 @@
-﻿using BuildingBlocks.Contracts.Infrastructure.Data;
+﻿using BuildingBlocks.Contracts.Infrastructure.Data.Sql;
 using BuildingBlocks.Domain.Primitives.AggregateRoots;
 using Microsoft.EntityFrameworkCore;
 using System;
