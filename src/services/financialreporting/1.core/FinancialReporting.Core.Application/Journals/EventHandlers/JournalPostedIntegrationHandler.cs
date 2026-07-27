@@ -1,9 +1,10 @@
-﻿using BuildingBlocks.Application.CQRS.Events;
+﻿using BuildingBlocks.Application.Common;
+using BuildingBlocks.Application.CQRS.Events;
+using BuildingBlocks.Integrations.Wolverine;
+using FinancialReporting.Core.Application.Mappings;
 using FinancialReporting.Core.Contracts.Journals.IntegrationEvents;
+using FinancialReporting.Core.RequestResponse.Journals.Commands;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Wolverine;
 
 namespace FinancialReporting.Core.Application.Journals.EventHandlers;
@@ -13,9 +14,10 @@ public class JournalPostedIntegrationHandler(
     : BaseIntegrationEventHandler<JournalEntryPostedIntegrationEvent>(logger)
 {
     protected override async Task HandleAsync(
-        JournalEntryPostedIntegrationEvent domainEvent,
+        JournalEntryPostedIntegrationEvent integrationEvent,
         CancellationToken cancellationToken)
     {
-        
+        await _bus.SendCommandAsync<Unit>(integrationEvent.MapToCreateCommand());
     }
 }
+
