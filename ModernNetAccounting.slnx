@@ -51,6 +51,9 @@
     <Project Path="src/services/financialreporting/1.core/FinancialReporting.Core.Resources/FinancialReporting.Core.Resources.csproj" Id="db8224ff-6bab-455e-99c4-e7370b1949e0" />
   </Folder>
   <Folder Name="/src/services/financial-reporting/2.infrastructure/" />
+  <Folder Name="/src/services/financial-reporting/2.infrastructure/Data/">
+    <Project Path="src/services/financialreporting/2.infrastructure/data/FinancialReporting.Infrastructure.Data.NoSql/FinancialReporting.Infrastructure.Data.NoSql.csproj" Id="3449c676-f8e1-448b-8045-181c2ccefae4" />
+  </Folder>
   <Folder Name="/src/services/financial-reporting/3.endpoints/">
     <Project Path="src/services/financialreporting/3.endpoints/FinancialReporting.Endpoints.Api/FinancialReporting.Endpoints.Api.csproj" />
   </Folder>
