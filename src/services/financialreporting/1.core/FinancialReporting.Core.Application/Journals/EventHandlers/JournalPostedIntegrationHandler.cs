@@ -17,7 +17,7 @@ public class JournalPostedIntegrationHandler(
         JournalEntryPostedIntegrationEvent integrationEvent,
         CancellationToken cancellationToken)
     {
-        await _bus.SendCommandAsync<Unit>(integrationEvent.MapToCreateCommand());
+        await _bus.SendCommandAsync<Unit>(command: integrationEvent.MapToCreateCommand());
     }
 }
 

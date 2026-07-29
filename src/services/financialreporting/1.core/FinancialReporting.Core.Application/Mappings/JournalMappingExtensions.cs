@@ -8,7 +8,7 @@ namespace FinancialReporting.Core.Application.Mappings;
 
 internal static class JournalMappingExtensions
 {
-    public static CreateGeneralLedgerCommand MapToCreateCommand(this JournalEntryPostedIntegrationEvent @event)
+    public static CreateGeneralLedgerCommand? MapToCreateCommand(this JournalEntryPostedIntegrationEvent @event)
     {
         if (@event == null)
             return null;
