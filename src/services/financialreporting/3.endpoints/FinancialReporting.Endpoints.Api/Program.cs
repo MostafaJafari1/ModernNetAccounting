@@ -1,60 +1,70 @@
 using FinancialReporting.Core.Application.Journals.EventHandlers;
+using FinancialReporting.Core.Contracts.Journals;
+using FinancialReporting.Infrastructure.Data.NoSql.Repositories;
+using JasperFx.CodeGeneration;
 using JasperFx.CodeGeneration.Model;
+using MongoDB.Driver;
 using Wolverine;
 using Wolverine.Configuration;
 using Wolverine.ErrorHandling;
 using Wolverine.Kafka;
+using JasperFx.CodeGeneration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
+// ۱. ثبت IMongoClient به صورت Singleton
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("MongoDb")
+        ?? "mongodb://localhost:27017";
+    return new MongoClient(connectionString);
+});
+
+// ۲. ثبت IMongoDatabase به صورت Singleton (تغییر از Scoped به Singleton)
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+{
+    var client = sp.GetRequiredService<IMongoClient>();
+    return client.GetDatabase("FinancialReportingDb");
+});
+
+// ۳. ثبت Repository
+builder.Services.AddScoped<IGeneralLedgerWriteRepository, GeneralLedgerWriteRepository>();
 
 builder.Host.UseWolverine(opts =>
 {
     opts.Durability.KeepAfterMessageHandling = TimeSpan.FromDays(7);
-    //opts.Policies.AutoApplyTransactions();
-    //opts.Policies.UseDurableLocalQueues();
-    //opts.Policies.UseDurableInboxOnAllListeners();
-    //opts.Policies.UseDurableOutboxOnAllSendingEndpoints();
 
+    // اجازه دادن به Wolverine برای استفاده از Service Location در صورت لزوم
+    opts.ServiceLocationPolicy = ServiceLocationPolicy.AlwaysAllowed;
     // ۱. اتصال به کافکا
-    //opts.UseKafka("localhost:9092");
     opts.UseKafka("localhost:9092,localhost:9095,localhost:9096");
 
     // ۲. تنظیمات گوش دادن با Consumer Group و Outbox
     opts.ListenToKafkaTopic("journal-entry-events")
         .ConfigureConsumer(config =>
         {
-            // تنظیم نام کانسیومر گروپ
             config.GroupId = "accounting-service-group";
             config.AutoOffsetReset = Confluent.Kafka.AutoOffsetReset.Earliest;
             config.EnableAutoCommit = false;
-            // شروع از ابتدای لاگ در صورت عدم وجود آفست قبلی
         })
-        // فعال‌سازی Inbox/Outbox برای پیام‌های دریافتی (تضمین Exactly-once processing)
         .UseDurableInbox()
         .ProcessInline();
 
-    // ۳. سیاست‌های ری‌ترا (Retry Policies) اختصاصی برای خطاها
+    // ۳. سیاست‌های ری‌ترا (Retry Policies)
     opts.Policies.OnException<Exception>()
-        .RetryTimes(3); // ۳ بار تلاش مجدد
+        .RetryTimes(3);
 
-    // اگر اسمبلی هندلرها متفاوت است
+    // اسکن اسمبلی هندلرها
     opts.Discovery.IncludeAssembly(typeof(JournalPostedIntegrationHandler).Assembly);
 });
 
-
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

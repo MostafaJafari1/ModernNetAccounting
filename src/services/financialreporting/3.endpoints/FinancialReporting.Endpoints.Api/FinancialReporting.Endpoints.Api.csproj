@@ -6,11 +6,17 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="WolverineFx.FluentValidation" Version="6.11.0" />
 		<PackageReference Include="WolverineFx.Kafka" Version="6.8.0" />
 		<PackageReference Include="WolverineFx.RuntimeCompilation" Version="6.7.0" />
+		<PackageReference Include="WolverineFx.Marten" Version="6.8.0" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\buildingblocks\src\api\BuildingBlocks.API.csproj" />
-	  <ProjectReference Include="..\..\1.core\FinancialReporting.Core.Application\FinancialReporting.Core.Application.csproj" />
+		<ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integrations.Marten\BuildingBlocks.Integrations.Marten.csproj" />
+		<ProjectReference Include="..\..\..\..\buildingblocks\Integrations\BuildingBlocks.Integrations.Wolverine\BuildingBlocks.Integrations.Wolverine.csproj" />
+		<ProjectReference Include="..\..\..\..\buildingblocks\src\api\BuildingBlocks.API.csproj" />
+		<ProjectReference Include="..\..\1.core\FinancialReporting.Core.Application\FinancialReporting.Core.Application.csproj" />
+		<ProjectReference Include="..\..\1.core\FinancialReporting.Core.RequestResponse\FinancialReporting.Core.RequestResponse.csproj" />
+		<ProjectReference Include="..\..\2.infrastructure\data\FinancialReporting.Infrastructure.Data.NoSql\FinancialReporting.Infrastructure.Data.NoSql.csproj" />
 	</ItemGroup>
 </Project>
