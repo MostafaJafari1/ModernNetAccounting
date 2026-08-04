@@ -4,3 +4,28 @@ GET {{FinancialReporting.Endpoints.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+POST {{FinancialReporting.Endpoints.Api_HostAddress}}/api/v1/generalledgers
+Content-Type: application/json
+
+{
+  "journalEntryId": "7f2c5d1a-4284-4e9a-8a56-02e21b04ef12",
+  "date": "2026-01-01",
+  "description": "HI ⭕😍🌋😁ℹ🏍🚓🤣",
+  "journalTypeId": 1,
+  "journalTypeName": "General",
+  "lines": [
+    {
+      "lineId": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "accountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "debit": 2000,
+      "credit": 0
+    },
+    {
+      "lineId": "9f8e7d6c-5b4a-3f2e-1d0c-9b8a7f6e5d4c",
+      "accountId": "4fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "debit": 0,
+      "credit": 2000
+    }
+  ]
+}

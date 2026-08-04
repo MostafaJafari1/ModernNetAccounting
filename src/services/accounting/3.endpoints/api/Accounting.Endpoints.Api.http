@@ -10,18 +10,18 @@ POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal
 Content-Type: application/json
 
 {
-  "date": "2024-01-01",
-  "description": "Test Journal",
+  "date": "2026-01-01",
+  "description": "HI ⭕😍🌋😁ℹ🏍🚓🤣",
   "lines": [
     {
       "accountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "debit": 1000,
+      "debit": 2000,
       "credit": 0
     },
     {
       "accountId": "4fa85f64-5717-4562-b3fc-2c963f66afa6",
       "debit": 0,
-      "credit": 1000
+      "credit": 2000
     }
   ]
 }
@@ -66,7 +66,7 @@ Content-Type: application/json
 
 ###
 
-POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal/896f0fdd-b6a5-4171-a4e8-8db27fa2e7f7/post
+POST {{Accounting.Endpoints.Api_HostAddress}}/api/v1/journal/ff02a4ed-c264-4110-8e7a-807db2c3dc1c/post
 Content-Type: application/json
 
 {}

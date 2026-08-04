@@ -4,9 +4,15 @@ using MongoDB.Driver;
 
 namespace FinancialReporting.Infrastructure.Data.NoSql.Repositories;
 
-public class GeneralLedgerWriteRepository(IMongoCollection<GeneralLedgerDocument> collection)
-    : IGeneralLedgerWriteRepository
+public class GeneralLedgerWriteRepository : IGeneralLedgerWriteRepository
 {
+    private readonly IMongoCollection<GeneralLedgerDocument> collection;
+
+    public GeneralLedgerWriteRepository(IMongoDatabase database)
+    {
+        collection = database.GetCollection<GeneralLedgerDocument>("GeneralLedgers");
+    }
+
     public async Task UpsertAsync(GeneralLedgerWriteModel model, CancellationToken cancellationToken)
     {
         var document = new GeneralLedgerDocument
