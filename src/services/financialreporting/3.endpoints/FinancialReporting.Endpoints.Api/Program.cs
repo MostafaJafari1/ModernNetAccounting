@@ -1,33 +1,34 @@
 using FinancialReporting.Core.Application.Journals.EventHandlers;
 using FinancialReporting.Core.Contracts.Journals;
+using FinancialReporting.Endpoints.Api.Options;
 using FinancialReporting.Infrastructure.Data.NoSql.Repositories;
-using JasperFx.CodeGeneration;
 using JasperFx.CodeGeneration.Model;
 using MongoDB.Driver;
 using Wolverine;
-using Wolverine.Configuration;
 using Wolverine.ErrorHandling;
 using Wolverine.Kafka;
-using JasperFx.CodeGeneration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 
-// ۱. ثبت IMongoClient به صورت Singleton
+builder.Services.Configure<MongoSettings>(
+    builder.Configuration.GetSection("MongoSettings"));
+
+// Register MongoClient
 builder.Services.AddSingleton<IMongoClient>(sp =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("MongoDb")
-        ?? "mongodb://localhost:27017";
+    var connectionString = builder.Configuration["MongoSettings:ConnectionString"];
     return new MongoClient(connectionString);
 });
 
-// ۲. ثبت IMongoDatabase به صورت Singleton (تغییر از Scoped به Singleton)
-builder.Services.AddSingleton<IMongoDatabase>(sp =>
+// Register IMongoDatabase
+builder.Services.AddScoped<IMongoDatabase>(sp =>
 {
     var client = sp.GetRequiredService<IMongoClient>();
-    return client.GetDatabase("FinancialReportingDb");
+    var databaseName = builder.Configuration["MongoSettings:DatabaseName"];
+    return client.GetDatabase(databaseName);
 });
 
 // ۳. ثبت Repository

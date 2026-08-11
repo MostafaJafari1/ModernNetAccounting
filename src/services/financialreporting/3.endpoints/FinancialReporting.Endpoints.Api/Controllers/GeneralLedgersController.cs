@@ -8,7 +8,7 @@ using BuildingBlocks.Integrations.Wolverine;
 namespace Accounting.Endpoints.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     public class GeneralLedgersController : BaseApiController
     {
         private readonly IMessageBus _bus;
