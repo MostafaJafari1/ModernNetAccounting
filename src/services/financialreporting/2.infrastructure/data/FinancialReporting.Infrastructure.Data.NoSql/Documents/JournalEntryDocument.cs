@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace FinancialReporting.Infrastructure.Data.NoSql.Documents;
 
-public class GeneralLedgerDocument
+public class JournalEntryDocument
 {
     [BsonId]
     [BsonRepresentation(BsonType.String)]
@@ -19,7 +19,7 @@ public class GeneralLedgerDocument
 
     public string JournalTypeName { get; set; } = default!;
 
-    public List<GeneralLedgerLineDocument> Lines { get; set; } = [];
+    public List<JournalEntryLineDocument> Lines { get; set; } = [];
 
     // Decimal128 preserves precision for financial data
     [BsonRepresentation(BsonType.Decimal128)]
@@ -32,7 +32,7 @@ public class GeneralLedgerDocument
     public DateTime CreatedAt { get; set; }
 }
 
-public class GeneralLedgerLineDocument
+public class JournalEntryLineDocument
 {
     [BsonRepresentation(BsonType.String)]
     public Guid LineId { get; set; }

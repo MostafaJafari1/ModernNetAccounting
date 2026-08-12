@@ -8,7 +8,7 @@ namespace FinancialReporting.Core.Application.Mappings;
 
 internal static class JournalMappingExtensions
 {
-    public static CreateGeneralLedgerCommand? MapToCreateCommand(this JournalEntryPostedIntegrationEvent @event)
+    public static CreateJournalEntryCommand? MapToCreateCommand(this JournalEntryPostedIntegrationEvent @event)
     {
         if (@event == null)
             return null;
@@ -20,7 +20,7 @@ internal static class JournalMappingExtensions
             line.Credit
         )).ToList() ?? new(); 
 
-        return new CreateGeneralLedgerCommand(
+        return new CreateJournalEntryCommand(
             @event.JournalEntryId,
             @event.Date,
             @event.Description,

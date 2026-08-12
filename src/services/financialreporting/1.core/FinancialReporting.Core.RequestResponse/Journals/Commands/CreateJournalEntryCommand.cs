@@ -3,7 +3,7 @@ using BuildingBlocks.Contracts.Application.CQRS.Commands;
 
 namespace FinancialReporting.Core.RequestResponse.Journals.Commands;
 
-public class CreateGeneralLedgerCommand
+public class CreateJournalEntryCommand
 (
     Guid JournalEntryId,
     DateOnly Date,
