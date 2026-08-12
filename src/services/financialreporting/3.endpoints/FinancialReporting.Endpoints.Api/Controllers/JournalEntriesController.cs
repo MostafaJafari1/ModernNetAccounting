@@ -9,17 +9,17 @@ namespace Accounting.Endpoints.Api.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class GeneralLedgersController : BaseApiController
+    public class JournalEntriesController : BaseApiController
     {
         private readonly IMessageBus _bus;
 
-        public GeneralLedgersController(IMessageBus bus)
+        public JournalEntriesController(IMessageBus bus)
         {
             _bus = bus;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateGeneralLedger([FromBody] CreateGeneralLedgerCommand command)
+        public async Task<IActionResult> CreateJournalEntry([FromBody] CreateJournalEntryCommand command)
             => Create(await _bus.SendCommandAsync<Unit>(command));
     }
 }

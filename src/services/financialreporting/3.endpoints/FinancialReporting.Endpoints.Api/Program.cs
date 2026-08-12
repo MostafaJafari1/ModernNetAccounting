@@ -32,7 +32,7 @@ builder.Services.AddScoped<IMongoDatabase>(sp =>
 });
 
 // ۳. ثبت Repository
-builder.Services.AddScoped<IGeneralLedgerWriteRepository, GeneralLedgerWriteRepository>();
+builder.Services.AddScoped<IJournalEntryWriteRepository, JournalEntryWriteRepository>();
 
 builder.Host.UseWolverine(opts =>
 {

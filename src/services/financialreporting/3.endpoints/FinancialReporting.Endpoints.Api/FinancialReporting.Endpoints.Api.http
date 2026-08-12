@@ -1,12 +1,12 @@
 @FinancialReporting.Endpoints.Api_HostAddress = http://localhost:5251
   
-POST {{FinancialReporting.Endpoints.Api_HostAddress}}/api/v1/generalledgers
+POST {{FinancialReporting.Endpoints.Api_HostAddress}}/api/v1/JournalEntries
 Content-Type: application/json
 
 {
   "journalEntryId": "7f2c5d1a-4284-4e9a-8a56-02e21b04ef12",
   "date": "2026-01-01",
-  "description": "HI ⭕😍🌋😁",
+  "description": "HI ⭕😍🌋😁🍏🍏❤❤🧡🧡🖤🖤🤎🤎💜💜💙💙🙏🙏🚗🚗🚕🚕",
   "journalTypeId": 1,
   "journalTypeName": "General",
   "lines": [

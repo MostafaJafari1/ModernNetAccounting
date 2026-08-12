@@ -1,24 +1,24 @@
 ﻿using FinancialReporting.Core.Contracts.Journals;
 
-namespace FinancialReporting.Core.Application.Journals.Commands.CreateGeneralLedger;
+namespace FinancialReporting.Core.Application.Journals.Commands.CreateJournalEntry;
 
-public class CreateGeneralLedgerCommandHandler : BaseCommandHandler<CreateGeneralLedgerCommand, Unit>
+public class CreateJournalEntryCommandHandler : BaseCommandHandler<CreateJournalEntryCommand, Unit>
 {
-    private readonly IGeneralLedgerWriteRepository _repository;
+    private readonly IJournalEntryWriteRepository _repository;
 
-    public CreateGeneralLedgerCommandHandler(
-        ILogger<CreateGeneralLedgerCommandHandler> logger,
-        IGeneralLedgerWriteRepository repository)
+    public CreateJournalEntryCommandHandler(
+        ILogger<CreateJournalEntryCommandHandler> logger,
+        IJournalEntryWriteRepository repository)
         : base(logger)
     {
         _repository = repository;
     }
 
     protected override async Task<Result<Unit>> HandleAsync(
-        CreateGeneralLedgerCommand command,
+        CreateJournalEntryCommand command,
         CancellationToken cancellationToken)
     {
-        var model = new GeneralLedgerWriteModel
+        var model = new JournalEntryWriteModel
         {
             JournalEntryId = command.JournalEntryId,
             Date = command.Date,
@@ -26,7 +26,7 @@ public class CreateGeneralLedgerCommandHandler : BaseCommandHandler<CreateGenera
             JournalTypeId = command.JournalTypeId,
             JournalTypeName = command.JournalTypeName,
             Lines = command.Lines
-                  .Select(l => new GeneralLedgerLineWriteModel
+                  .Select(l => new JournalEntryLineWriteModel
                   {
                       LineId = l.LineId,
                       AccountId = l.AccountId,

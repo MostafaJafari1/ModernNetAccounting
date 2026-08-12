@@ -4,18 +4,18 @@ using MongoDB.Driver;
 
 namespace FinancialReporting.Infrastructure.Data.NoSql.Repositories;
 
-public class GeneralLedgerWriteRepository : IGeneralLedgerWriteRepository
+public class JournalEntryWriteRepository : IJournalEntryWriteRepository
 {
-    private readonly IMongoCollection<GeneralLedgerDocument> collection;
+    private readonly IMongoCollection<JournalEntryDocument> collection;
 
-    public GeneralLedgerWriteRepository(IMongoDatabase database)
+    public JournalEntryWriteRepository(IMongoDatabase database)
     {
-        collection = database.GetCollection<GeneralLedgerDocument>("GeneralLedgers");
+        collection = database.GetCollection<JournalEntryDocument>("JournalEntries");
     }
 
-    public async Task UpsertAsync(GeneralLedgerWriteModel model, CancellationToken cancellationToken)
+    public async Task UpsertAsync(JournalEntryWriteModel model, CancellationToken cancellationToken)
     {
-        var document = new GeneralLedgerDocument
+        var document = new JournalEntryDocument
         {
             Id = model.JournalEntryId,
             Date = model.Date,
@@ -23,7 +23,7 @@ public class GeneralLedgerWriteRepository : IGeneralLedgerWriteRepository
             JournalTypeId = model.JournalTypeId,
             JournalTypeName = model.JournalTypeName,
             Lines = model.Lines
-                .Select(l => new GeneralLedgerLineDocument
+                .Select(l => new JournalEntryLineDocument
                 {
                     LineId = l.LineId,
                     AccountId = l.AccountId,
@@ -36,7 +36,7 @@ public class GeneralLedgerWriteRepository : IGeneralLedgerWriteRepository
             CreatedAt = DateTime.UtcNow
         };
 
-        var filter = Builders<GeneralLedgerDocument>.Filter.Eq(x => x.Id, document.Id);
+        var filter = Builders<JournalEntryDocument>.Filter.Eq(x => x.Id, document.Id);
 
         await collection.ReplaceOneAsync(
             filter,
