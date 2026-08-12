@@ -1,4 +1,5 @@
-﻿using BuildingBlocks.Contracts.Application.CQRS.Queries;
+﻿using BuildingBlocks.Common;
+using BuildingBlocks.Contracts.Application.CQRS.Queries;
 using Microsoft.Extensions.Logging;
 
 namespace BuildingBlocks.Application.CQRS.Queries;
@@ -14,7 +15,7 @@ public abstract class BaseQueryHandler<TQuery, TResult>
         Logger = logger;
     }
 
-    public async Task<TResult> Handle(
+    public async Task<Result<TResult>> Handle(
         TQuery query,
         CancellationToken cancellationToken)
     {
@@ -42,11 +43,11 @@ public abstract class BaseQueryHandler<TQuery, TResult>
         }
     }
 
-    protected abstract Task<TResult> HandleAsync(
+    protected abstract Task<Result<TResult>> HandleAsync(
         TQuery query,
         CancellationToken cancellationToken);
 
-    Task<TResult> IQueryHandler<TQuery, TResult>.HandleAsync(TQuery query, CancellationToken cancellationToken)
+    Task<Result<TResult>> IQueryHandler<TQuery, TResult>.HandleAsync(TQuery query, CancellationToken cancellationToken)
     {
         return HandleAsync(query, cancellationToken);
     }
