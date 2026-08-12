@@ -24,3 +24,8 @@ Content-Type: application/json
     }
   ]
 }
+
+###
+
+GET {{FinancialReporting.Endpoints.Api_HostAddress}}/api/v1/JournalEntries?page=1&pageSize=10
+Accept: application/json

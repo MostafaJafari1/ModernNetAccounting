@@ -45,4 +45,7 @@ public class JournalEntryLineDocument
 
     [BsonRepresentation(BsonType.Decimal128)]
     public decimal Credit { get; set; }
+
+    [BsonRepresentation(BsonType.String)]
+    public string AccountName { get; set; }
 }

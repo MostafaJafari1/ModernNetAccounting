@@ -14,6 +14,7 @@ public class JournalEntryLineWriteModel
 {
     public Guid LineId { get; set; }
     public Guid AccountId { get; set; }
+    public string AccountName { get; set; }
     public decimal Debit { get; set; }
     public decimal Credit { get; set; }
 }
