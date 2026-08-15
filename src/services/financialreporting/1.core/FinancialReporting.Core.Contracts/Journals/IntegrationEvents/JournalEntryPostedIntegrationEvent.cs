@@ -6,16 +6,14 @@ namespace FinancialReporting.Core.Contracts.Journals.IntegrationEvents;
 
 [MessageIdentity("journal-entry-posted")]
 public record JournalEntryPostedIntegrationEvent(
+    Guid Id,
     Guid JournalEntryId,
     DateOnly Date,
     string Description,
     int JournalTypeId,
     string JournalTypeName,
-    List<JournalLineDto> Lines) : IIntegrationEvent
-{
-    public Guid Id { get; } = Guid.NewGuid();
-    public DateTime HappenedAt { get; } = DateTime.Now;
-}
+    List<JournalLineDto> Lines,
+    DateTime HappenedAt) : IIntegrationEvent;
 
 public record JournalLineDto(
     Guid LineId,
