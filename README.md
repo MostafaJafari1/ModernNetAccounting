@@ -1,6 +1,9 @@
 # ModernNetAccounting
 
-A modular, event-driven accounting platform built with .NET 9, DDD, and Clean Architecture.
+## 📖 Project Story
+Almost 10 years ago, I built a small web-based accounting application called 'Net Accounting' for my father to use in his work. The application is still actively used today. The project was built with ASP.NET Framework on the backend and AngularJS on the frontend. Working on this project also gave me my first practical experience with the accounting domain and helped me understand its core concepts and workflows. 
+
+Over the years, I have developed and worked on Event-Driven Microservices and Domain-Driven Design (DDD) projects in the companies I have worked for. I have always wanted to find the time to evolve my monolithic accounting application into a modern, scalable system and apply the architectures, patterns and knowledge I have gained throughout my career. That is why I started this project called 'Modern Net Accounting'.
 
 ## 🏗️ Architecture Overview
 This project demonstrates a distributed accounting system designed for scalability and maintainability.
@@ -24,4 +27,7 @@ ModernNetAccounting/
 │   ├── Inventory/          # Inventory management service
 │   └── Shared/             # Common contracts and events
 ├── tests/                  # Integration tests with Testcontainers
-└── docs/                   # Architectural Decision Records (ADR)
+└── docs/                   # Architectural De
+
+## The Starting Point — From Monolith to Modern Architecture
+
