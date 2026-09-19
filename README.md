@@ -19,15 +19,3 @@ This project demonstrates a distributed accounting system designed for scalabili
 * **Infrastructure as Code:** Designed for cloud-native deployment.
 * **Quality Assurance:** CI/CD integration with GitHub Actions & SonarCloud.
 
-## 📂 Project Structure
-```text
-ModernNetAccounting/
-├── src/
-│   ├── Accounting/         # Accounting core service
-│   ├── Inventory/          # Inventory management service
-│   └── Shared/             # Common contracts and events
-├── tests/                  # Integration tests with Testcontainers
-└── docs/                   # Architectural De
-
-## The Starting Point — From Monolith to Modern Architecture
-
