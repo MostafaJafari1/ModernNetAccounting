@@ -45,7 +45,3 @@ Given MediatR’s shift toward a commercial licensing model in upcoming versions
 
 * **Learning Curve**
 * **Paradigm Shift:** The team must adapt to a "convention over configuration" mindset, which is a departure from the explicit interface-driven approach of MediatR.
-
----
-
-Does this ADR capture the technical shift you were looking for, or would you like to expand on any specific section?
