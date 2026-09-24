@@ -8,7 +8,7 @@ Over the years, I have developed and worked on Event-Driven Microservices and Do
 ## 🏗️ Architecture Overview
 This project demonstrates a distributed accounting system designed for scalability, maintainability, and reliable event-driven communication.
 
-* **Microservices:** Accounting, Inventory, and Reporting.
+* **Microservices:** Core Accounting and Reporting.
 * **Architecture & Patterns:** DDD (Domain-Driven Design), Clean Architecture, Event Sourcing, Transactional Outbox, and reusable Building Blocks.
 * **Persistence:** Marten and MongoDB.
 * **Messaging:** Wolverine with Apache Kafka for event-driven communication.
@@ -17,8 +17,12 @@ This project demonstrates a distributed accounting system designed for scalabili
 
 
 ## 🚀 Key Technical Features
-* **Modular Design:** Self-contained microservices (Monorepo).
-* **Reliability:** Transactional Outbox pattern to ensure data consistency.
-* **Infrastructure as Code:** Designed for cloud-native deployment.
-* **Quality Assurance:** CI/CD integration with GitHub Actions & SonarCloud.
 
+* **Modular Design:** Self-contained microservices organized in a Monorepo.
+* **Domain Architecture:** DDD and Clean Architecture with clear separation of business and infrastructure concerns.
+* **Event-Driven:** Asynchronous communication using Apache Kafka and domain events.
+* **Reliability:** Transactional Outbox pattern for reliable event publishing and data consistency.
+* **Integration Testing:** Real infrastructure integration tests powered by Testcontainers.
+* **Architecture Documentation:** Architecture Decision Records (ADRs) for documenting key technical decisions.
+* **CI/CD:** Automated workflows and continuous integration using GitHub Actions.
+* **Cloud-Native:** Designed with scalable, independently deployable services and cloud-native principles.
